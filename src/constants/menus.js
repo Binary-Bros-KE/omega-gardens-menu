@@ -412,7 +412,7 @@ export const menuData = {
   },
   pork: {
     title: "Pork",
-    image: "/pork.webp",
+    image: "/pork.png",
     items: [
       {
         name: "Grilled Pork Spare Ribs (500g)",
@@ -448,7 +448,7 @@ export const menuData = {
   },
   mutton: {
     title: "Mutton",
-    image: "/mutton.webp",
+    image: "/mutton.png",
     items: [
       {
         name: "Mutton Chops",
@@ -561,7 +561,7 @@ export const menuData = {
   },
   african: {
     title: "African Dishes",
-    image: "/african-food.webp",
+    image: "/african-food.png",
     items: [
       {
         name: "Ugali Terere",
@@ -1032,7 +1032,7 @@ export const menuData = {
   },
   snacks: {
     title: "Snacks",
-    image: "/snacks.webp",
+    image: "/snacks.png",
     items: [
       { name: "Beef Samosa", price: 100, description: null },
       { name: "Special Samosa", price: 350, description: null, },

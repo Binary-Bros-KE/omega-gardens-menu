@@ -68,18 +68,6 @@ export default function OmegaGardensMenu() {
             >
               Hotel & Spa Restaurant
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center justify-center text-green-200 text-sm"
-            >
-              <MapPin className="w-4 h-4 mr-1" />
-              <span>Premium Dining Experience</span>
-              <Star className="w-4 h-4 mx-2 text-yellow-400" />
-              <Clock className="w-4 h-4 mr-1" />
-              <span>Open Daily</span>
-            </motion.div>
           </div>
         </div>
       </motion.header>
@@ -228,7 +216,7 @@ export default function OmegaGardensMenu() {
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 bg-gradient-to-br from-green-50 to-white">
+                      <div className="p-2 bg-gradient-to-br from-green-50 to-white">
                         {/* Direct Items */}
                         {category.items && (
                           <div className="grid gap-4">
@@ -238,7 +226,7 @@ export default function OmegaGardensMenu() {
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: itemIndex * 0.05 }}
-                                className="bg-white rounded-2xl p-6 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:border-green-200"
+                                className="bg-white rounded-2xl p-4 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:border-green-200"
                               >
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
@@ -263,7 +251,7 @@ export default function OmegaGardensMenu() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: subIndex * 0.1 }}
-                                className="bg-gradient-to-r from-green-100 to-green-50 rounded-2xl p-6"
+                                className="bg-gradient-to-r from-green-100 to-green-50 rounded-2xl p-4"
                               >
                                 <h3 className="text-2xl font-bold text-green-800 mb-6 border-b-2 border-green-200 pb-2">
                                   {subcategory.title}
