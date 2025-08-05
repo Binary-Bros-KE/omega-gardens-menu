@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, ChevronDown, Utensils, Star, Clock, MapPin } from "lucide-react"
-import { menuData, searchItems } from "../../../constants/menus"
+import { menuData, searchItems } from "../../constants/menus"
 
 export default function OmegaGardensMenu() {
   const [searchQuery, setSearchQuery] = useState("")
