@@ -12,7 +12,6 @@ const AccommodationsPage = () => {
 
     const handleSearchRooms = (e) => {
         e.preventDefault()
-        // In a real application, you would send this data to a booking API
         console.log({
             checkInDate,
             checkOutDate,
@@ -24,22 +23,22 @@ const AccommodationsPage = () => {
     }
 
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50 font-fredoka">
+        <div className="flex flex-col bg-[url('/accomodations/bed-2.jpg')] font-fredoka bg-cover bg-center">
             <main className="flex-1 py-20">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left Section: Title and Booking Form */}
                         <div className="space-y-8">
-                            <div className="text-sm font-semibold text-green-600 uppercase tracking-wider">
+                            {/* <div className="text-sm font-semibold text-green-600 uppercase tracking-wider">
                                 YOUR COMFORT, OUR COMMITMENT
-                            </div>
-                            <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
+                            </div> */}
+                            {/* <h1 className="text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
                                 Your <span className="text-green-700 font-serif italic">Stay</span>, Our Priority.
                             </h1>
                             <p className="text-lg text-gray-600 max-w-lg">
                                 Experience unparalleled comfort and luxury at Omega Gardens. Find the perfect room for your next
                                 unforgettable getaway.
-                            </p>
+                            </p> */}
 
                             {/* Booking Form */}
                             <form onSubmit={handleSearchRooms} className="bg-white p-8 rounded-xl shadow-lg space-y-6">
@@ -149,7 +148,7 @@ const AccommodationsPage = () => {
                         </div>
 
                         {/* Right Section: Image Collage */}
-                        <div className="relative h-[600px] hidden lg:block">
+                        {/* <div className="relative h-[600px] hidden lg:block">
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-[90%] bg-green-100 rounded-3xl shadow-xl"></div>
                             <div className="absolute top-0 left-0 w-[60%] h-[50%] rounded-3xl overflow-hidden shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                                 <img
@@ -159,7 +158,7 @@ const AccommodationsPage = () => {
                                 />
                             </div>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </main>
