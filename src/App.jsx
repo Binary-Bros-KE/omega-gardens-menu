@@ -7,6 +7,7 @@ import OmegaGardensMenu from './pages/menu/OmegaGardensMenu';
 import Footer from './components/Footer/Footer';
 import Accomodation from './pages/accomodation/Accomodation';
 import ChildrenPage from './pages/children/ChildrenPage';
+import OmegaGardensBarMenu from './pages/barMenu/BarMenu';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         {/* <Route path='/' element={<Home />}></Route> */}
         {/* <Route path='/accomodation' element={<Accomodation />} /> */}
         <Route path='/' element={<OmegaGardensMenu />} />
+        <Route path='/bar-menu' element={<OmegaGardensBarMenu />} />
         {/* <Route path='/children-activities' element={<ChildrenPage />} /> */}
       </Routes>
 
