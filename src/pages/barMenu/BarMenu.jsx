@@ -317,7 +317,7 @@ export default function OmegaGardensBarMenu() {
                                     backgroundColor: { duration: 0.3 },
                                     scale: { duration: 0.3 }
                                   }}
-                                  className={`bg-white rounded-md p-2 shadow-lg border-2 hover:shadow-xl transition-all duration-300 ${isHighlighted
+                                  className={`bg-white rounded-md p-2 py-4 shadow-lg border-2 hover:shadow-xl transition-all duration-300 ${isHighlighted
                                       ? "border-amber-400 shadow-amber-200"
                                       : "border-amber-100 hover:border-amber-200"
                                     }`}
