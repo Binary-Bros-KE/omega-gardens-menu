@@ -30,6 +30,17 @@
 @theme{
   --font-cursive: 'Dancing Script', cursive;
   --font-fredoka: 'Fredoka', sans-serif;
+
+    /* Define animation variable for Tailwind utility classes */
+  --animate-wiggle: wiggle 0.8s ease-in-out infinite;
+
+  /* Define the actual keyframes */
+  @keyframes wiggle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
 }
+
+
 
 

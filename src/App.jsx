@@ -16,10 +16,10 @@ function App() {
 
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/accomodation' element={<Accomodation />} />
-        <Route path='/menu' element={<OmegaGardensMenu />} />
-        <Route path='/children-activities' element={<ChildrenPage />} />
+        {/* <Route path='/' element={<Home />}></Route> */}
+        {/* <Route path='/accomodation' element={<Accomodation />} /> */}
+        <Route path='/' element={<OmegaGardensMenu />} />
+        {/* <Route path='/children-activities' element={<ChildrenPage />} /> */}
       </Routes>
 
       <Footer />
