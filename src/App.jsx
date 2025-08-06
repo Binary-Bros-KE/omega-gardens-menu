@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Toaster position="top-right" containerClassName='z-99999999' />
 
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         {/* <Route path='/' element={<Home />}></Route> */}
         {/* <Route path='/accomodation' element={<Accomodation />} /> */}
@@ -22,7 +22,7 @@ function App() {
         {/* <Route path='/children-activities' element={<ChildrenPage />} /> */}
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
 
     </Router>
   );
