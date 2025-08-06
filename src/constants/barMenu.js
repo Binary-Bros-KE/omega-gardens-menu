@@ -88,7 +88,7 @@ export const barMenu = {
     },
     whisky: {
         title: "Whisky",
-        image: "/bar-menu/whisky.webp",
+        image: "/bar-menu/whisky.png",
         items: [
             { name: "BALLENTINE 1LTR", price: 3500.00 },
             { name: "BEST WHISKY 250ML", price: 600.00 },
@@ -161,7 +161,7 @@ export const barMenu = {
     },
     liqueur: {
         title: "Liqueur",
-        image: "/bar-menu/liqueur.webp",
+        image: "/bar-menu/liqueur.png",
         items: [
             { name: "SOUTHERN COMFORT 700ML", price: 3500.00 },
             { name: "JAGERMEISTER 700ML", price: 4000.00 },
@@ -179,7 +179,7 @@ export const barMenu = {
     },
     rum: {
         title: "Rum",
-        image: "/bar-menu/rum.webp",
+        image: "/bar-menu/rum.png",
         items: [
             { name: "BACARDI SUPERIOR 750ML", price: 2500.00 },
             { name: "MALIBU 750ML", price: 3000.00 },

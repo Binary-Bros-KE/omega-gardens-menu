@@ -255,7 +255,7 @@ export default function OmegaGardensBarMenu() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: categoryIndex * 0.1 }}
-                className="bg-white rounded-3xl shadow-xl overflow-hidden border border-amber-100"
+                className="bg-white rounded-xl shadow-xl overflow-hidden border border-amber-100"
               >
                 {/* Category Header */}
                 <div className="relative cursor-pointer" onClick={() => toggleCategory(categoryKey)}>
@@ -294,10 +294,10 @@ export default function OmegaGardensBarMenu() {
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50">
+                      <div className="p-2 bg-gradient-to-br from-amber-50 to-orange-50">
                         {/* Direct Items */}
                         {category.items && (
-                          <div className="grid gap-4">
+                          <div className="grid gap-3">
                             {category.items.map((item, itemIndex) => {
                               const itemKey = `${categoryKey}-${item.name}`
                               const isHighlighted = highlightedItem === itemKey
@@ -317,20 +317,20 @@ export default function OmegaGardensBarMenu() {
                                     backgroundColor: { duration: 0.3 },
                                     scale: { duration: 0.3 }
                                   }}
-                                  className={`bg-white rounded-2xl p-5 shadow-lg border-2 hover:shadow-xl transition-all duration-300 ${isHighlighted
+                                  className={`bg-white rounded-md p-2 shadow-lg border-2 hover:shadow-xl transition-all duration-300 ${isHighlighted
                                       ? "border-amber-400 shadow-amber-200"
                                       : "border-amber-100 hover:border-amber-200"
                                     }`}
                                 >
                                   <div className="flex justify-between items-start">
                                     <div className="flex-1">
-                                      <h3 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h3>
+                                      <h3 className="text-sm font-semibold text-gray-800 mb-2">{item.name}</h3>
                                       {item.description && (
                                         <p className="text-gray-600 leading-relaxed">{item.description}</p>
                                       )}
                                     </div>
                                     <div className="ml-6 text-right">
-                                      <div className="text-2xl font-bold text-amber-700">{formatPrice(item.price)}</div>
+                                      <div className="text-xl font-semibold text-amber-700">{formatPrice(item.price)}</div>
                                     </div>
                                   </div>
                                 </motion.div>

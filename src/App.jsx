@@ -19,9 +19,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/accomodation' element={<Accomodation />} />
+        <Route path='/children-activities' element={<ChildrenPage />} />
+
         <Route path='/restaurant-menu' element={<OmegaGardensMenu />} />
         <Route path='/bar-menu' element={<OmegaGardensBarMenu />} />
-        <Route path='/children-activities' element={<ChildrenPage />} />
       </Routes>
 
       {/* <Footer /> */}
