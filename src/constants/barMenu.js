@@ -4,9 +4,10 @@ export const barMenu = {
     beer: {
         title: "Beers Cans",
         image: "/bar-menu/beer-cans.png",
+        categoryImage: "/bar-menu/categories/beer-cans.png",
         items: [
-            { name: "BALOZI CAN", price: 350.00 },
-            { name: "GORDONS TONIC CAN 330ML", price: 300.00 },
+            { name: "BALOZI CAN", price: 350.00, image: "/bar-menu/showcase/balozi.png", },
+            { name: "GORDONS TONIC CAN 330ML", price: 300.00, },
             { name: "Pineapple Punch Can", price: 300.00 },
             { name: "GUARANA Can", price: 300.00 },
             { name: "GUINESS CAN 500ML", price: 350.00 },
@@ -25,10 +26,11 @@ export const barMenu = {
     beers: {
         title: "Beers",
         image: "/bar-menu/beer.png",
+        categoryImage: "/bar-menu/categories/smirnoff.png",
         items: [
-            { name: "BALOZI", price: 300.00 },
+            { name: "BALOZI", price: 300.00, },
             { name: "GUINESS KUBWA", price: 300.00 },
-            { name: "PILSNER", price: 300.00 },
+            { name: "PILSNER", price: 300.00, image: "/bar-menu/showcase/pilsner.png", },
             { name: "SMIRNOFF BLACK", price: 300.00 },
             { name: "SNAPP", price: 300.00 },
             { name: "TUSKER CIDER", price: 300.00 },
@@ -42,7 +44,7 @@ export const barMenu = {
             { name: "HEINEKEN 330ML", price: 400.00 },
             { name: "HUNTERS", price: 300.00 },
             { name: "KINGFISHER", price: 300.00 },
-            { name: "SAVANNAH DRY", price: 350.00 },
+            { name: "SAVANNAH DRY", price: 350.00, image: "/bar-menu/showcase/savannah.png" },
             { name: "SAVANNAH LEMON", price: 350.00 },
             { name: "WINDHOEK LAGER", price: 300.00 },
         ],
@@ -51,8 +53,9 @@ export const barMenu = {
     brandy: {
         title: "Brandy",
         image: "/bar-menu/brandy.jpg",
+        categoryImage: "/bar-menu/categories/brandy.png",
         items: [
-            { name: "KENYA CANE 375ML", price: 600.00 },
+            { name: "KENYA CANE 375ML", price: 600.00, image: "/bar-menu/showcase/kenya-cane.png", },
             { name: "KENYA CANE 750ML", price: 2000.00 },
             { name: "RICHOT 250ML", price: 700.00 },
             { name: "RICHOT 375ML", price: 900.00 },
@@ -66,9 +69,10 @@ export const barMenu = {
     vodka: {
         title: "Vodka",
         image: "/bar-menu/vodka.jpg",
+        categoryImage: "/bar-menu/categories/vodka.png",
         items: [
-            { name: "CRUZ VINTAGE BLACK VODKA 750ML", price: 3000.00 },
-            { name: "SMIRNOFF VODKA 250ML", price: 700.00 },
+            { name: "CRUZ VINTAGE BLACK VODKA 750ML", price: 3000.00, },
+            { name: "SMIRNOFF VODKA 250ML", price: 700.00, image: "/bar-menu/showcase/smirnoff.png" },
             { name: "SMIRNOFF VODKA 375ML", price: 1000.00 },
             { name: "SMIRNOFF VODKA 750ML", price: 1000.00 },
             { name: "FLIRT VODKA 1LTR", price: 2000.00 },
@@ -78,9 +82,10 @@ export const barMenu = {
     tequila: {
         title: "Tequila",
         image: "/bar-menu/tequila.jpeg",
+        categoryImage: "/bar-menu/categories/tequila.png",
         items: [
-            { name: "TEQUILA CAMINO 750ML", price: 3500.00 },
-            { name: "JOSE CUEVO 750ML", price: 4000.00 },
+            { name: "TEQUILA CAMINO 750ML", price: 3500.00, image: "/bar-menu/showcase/TEQUILA.png" },
+            { name: "JOSE CUEVO 750ML", price: 4000.00, },
             { name: "TEQUILA ROSE 700ML", price: 3500.00 },
             { name: "JOSECUEVO SPECIAL TOT", price: 200.00 },
             { name: "TEQUILLA CAMINO TOT", price: 200.00 },
@@ -89,8 +94,9 @@ export const barMenu = {
     whisky: {
         title: "Whisky",
         image: "/bar-menu/whisky.png",
+        categoryImage: "/bar-menu/categories/whisky.png",
         items: [
-            { name: "BALLENTINE 1LTR", price: 3500.00 },
+            { name: "BALLENTINE 1LTR", price: 3500.00, image: "/bar-menu/showcase/BALLENTINE.png" },
             { name: "BEST WHISKY 250ML", price: 600.00 },
             { name: "BLACK AND WHITE 500ML", price: 900.00 },
             { name: "BLACK AND WHITE 750ML", price: 2000.00 },
@@ -148,8 +154,9 @@ export const barMenu = {
     cognac: {
         title: "Cognac",
         image: "/bar-menu/cognac.jpg",
+        categoryImage: "/bar-menu/categories/cognag.png",
         items: [
-            { name: "HENNESSY V.S 700ML", price: 7500.00 },
+            { name: "HENNESSY V.S 700ML", price: 7500.00, image: "/bar-menu/showcase/HENNESSY.png" },
             { name: "HENNESSY V.S.O.P 700ML", price: 15000.00 },
             { name: "MARTEL V.S 700ML", price: 7500.00 },
             { name: "MARTEL V.S.O.P 700ML", price: 12000.00 },
@@ -162,11 +169,12 @@ export const barMenu = {
     liqueur: {
         title: "Liqueur",
         image: "/bar-menu/liqueur.png",
+        categoryImage: "/bar-menu/categories/liqueur.png",
         items: [
             { name: "SOUTHERN COMFORT 700ML", price: 3500.00 },
             { name: "JAGERMEISTER 700ML", price: 4000.00 },
             { name: "AMARULA 375ML", price: 1600.00 },
-            { name: "AMARULA 750ML", price: 3000.00 },
+            { name: "AMARULA 750ML", price: 3000.00, image: "/bar-menu/showcase/AMARULA.png" },
             { name: "BAILEYS 750", price: 4000.00 },
             { name: "SHERIDANTS 1LTR", price: 7000.00 },
             { name: "ZAPPA RED 750ML", price: 2000.00 },
@@ -180,8 +188,9 @@ export const barMenu = {
     rum: {
         title: "Rum",
         image: "/bar-menu/rum.png",
+        categoryImage: "/bar-menu/categories/rum.png",
         items: [
-            { name: "BACARDI SUPERIOR 750ML", price: 2500.00 },
+            { name: "BACARDI SUPERIOR 750ML", price: 2500.00, image: "/bar-menu/showcase/BACARDI.png" },
             { name: "MALIBU 750ML", price: 3000.00 },
             { name: "MYERS RUM 750ML", price: 3000.00 },
             { name: "CAPTAIN MORGAN GOLD 250ML", price: 500.00 },
@@ -192,8 +201,9 @@ export const barMenu = {
     wines: {
         title: "Wines",
         image: "/bar-menu/wines.jpg",
+        categoryImage: "/bar-menu/categories/wines.png",
         items: [
-            { name: "14 TH STREET WHITE PER GLASS", price: 250.00 },
+            { name: "14TH STREET WHITE PER GLASS", price: 250.00, image: "/bar-menu/showcase/14TH-STREET-WHITE.png" },
             { name: "4TH STREET RED PER GLASS", price: 250.00 },
             { name: "4TH STREET RED 750ML", price: 1700.00 },
             { name: "4TH STREET WHITE 750ML", price: 1700.00 },
