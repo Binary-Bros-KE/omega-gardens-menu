@@ -25,23 +25,31 @@ import {
   Baby,
   Heart,
   Menu,
+  X,
 } from "lucide-react"
+import { href } from "react-router-dom"
+import { MdOutlineHotel } from "react-icons/md"
+import { SiWhatsapp } from "react-icons/si"
+import { FaInstagram } from "react-icons/fa"
+import { RiTiktokLine } from "react-icons/ri"
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isFoodsOpen, setIsFoodsOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false)
 
   const services = [
-    { name: "Accommodations", icon: Bed, description: "Luxury rooms and suites" },
-    { name: "Conference Hall", icon: Users, description: "Professional meeting spaces" },
-    { name: "Boardroom", icon: Building, description: "Executive meeting rooms" },
-    { name: "Barbershop", icon: Scissors, description: "Professional grooming services" },
-    { name: "Wedding Grounds", icon: Heart, description: "Beautiful ceremony venues" },
-    { name: "Team Building", icon: Users, description: "Corporate activities" },
-    { name: "Swimming Pool", icon: Waves, description: "Refreshing pool experience" },
-    { name: "Gym & Spa", icon: Dumbbell, description: "Fitness and wellness center" },
-    { name: "Children Playground", icon: Baby, description: "Safe play area for kids" },
-    { name: "Rooftop Bar", icon: Wine, description: "Scenic dining experience" },
+    { name: "Accommodations", icon: Bed, description: "Luxury rooms and suites", href: "/accomodation" },
+    { name: "Conference Hall", icon: Users, description: "Professional meeting spaces", href: "/accomodation#boardroom" },
+    { name: "Boardroom", icon: Building, description: "Executive meeting rooms", href: "/accomodation#boardroom" },
+    { name: "Barbershop", icon: Scissors, description: "Professional grooming services", href: "/gym-and-spa#barbershop" },
+    { name: "Wedding Grounds", icon: Heart, description: "Beautiful ceremony venues", href: "/wedding-grounds" },
+    { name: "Team Building", icon: Users, description: "Corporate activities", href: "/gym-and-spa#team-building" },
+    { name: "Swimming Pool", icon: Waves, description: "Refreshing pool experience", href: "/children-activities" },
+    { name: "Gym & Spa", icon: Dumbbell, description: "Fitness and wellness center", href: "/gym-and-spa" },
+    { name: "Children Playground", icon: Baby, description: "Safe play area for kids", href: "/children-activities" },
+    { name: "Omega Gardens Bar", icon: Wine, description: "From Beers to Wines", href: "/bar" },
   ]
 
   const foodCategories = [
@@ -57,34 +65,43 @@ const Navbar = () => {
     <header className="w-full font-fredoka">
       {/* Top Bar */}
       <div className="bg-green-800 text-white py-2 px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <MapPin className="w-4 h-4" />
-              <span>Along Karatina-Nairobi Highway</span>
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs sm:text-sm gap-2 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-6 max-md:w-full">
+            <div className="flex items-center space-x-2 max-md:w-full max-md:justify-between">
+              <div className="flex items-center gap-1">
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="truncate">Along Karatina-Nairobi Highway</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Mail className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <Mail className="w-4 h-4" />
-              <span>info@omegagardens.com</span>
+            <div className="flex items-center space-x-2 max-md:hidden">
+              <Mail className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+              <span className="truncate">info@omegagardens.com</span>
             </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <Clock className="w-4 h-4" />
-            <span>Opening Hours: Monday to Sunday - 6 AM to 11 PM</span>
+          <div className="flex items-center space-x-2 max-md:hidden">
+            <Clock className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span className="text-xs sm:text-sm">Opening Hours: Monday to Sunday - 6 AM to 11 PM</span>
           </div>
         </div>
       </div>
 
       {/* Middle Section */}
-      <div className="bg-white py-4 px-4 border-b border-green-100">
+      <div className="bg-white py-3 sm:py-4 px-4 border-b border-green-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <img src="/logo.png" className="h-20" alt="" />
-          </div>
+          <a href="/">
+            <div className="flex items-center space-x-3">
+              <img src="/logo.png" className="h-20" alt="" />
+            </div>
+          </a>
 
-          {/* Search Bar */}
-          <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+          {/* Search Bar - Desktop */}
+          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8">
             <div className="relative w-full">
               <input
                 type="text"
@@ -96,105 +113,69 @@ const Navbar = () => {
           </div>
 
           {/* Contact & CTA */}
-          <div className="flex items-center space-x-4">
-            <div className="text-right">
-              <p className="text-sm text-gray-600">For any Inquiries/Booking</p>
-              <p className="text-lg font-bold text-green-800 flex items-center">
-                <Phone className="w-4 h-4 mr-1" />
-                +254 795 106 483
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="hidden sm:block text-right">
+              <p className="text-xs text-gray-600">For any Inquiries/Booking</p>
+              <p className="text-sm sm:text-lg font-bold text-green-800 flex items-center">
+                <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                +254 700 549496
               </p>
             </div>
-            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+            <a href="/contact" className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base">
               Book Now
-            </button>
+            </a>
           </div>
         </div>
+
+        {isMobileSearchOpen && (
+          <div className="lg:hidden mt-4">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder="Search for services, rooms, dining..."
+                className="w-full px-4 py-2 border border-green-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+              <Search className="absolute right-3 top-2.5 w-5 h-5 text-green-500" />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Navigation Bar */}
-      <nav className="bg-white font-bold text-gray-600 shadow-xl">
-        <div className="max-w-7xl mx-auto flex items-center">
-          {/* Our Services Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="bg-green-800 text-white hover:bg-green-900 mx-2 my-2 px-6 py-2 rounded-sm flex items-center space-x-2 transition-colors"
-            >
-              <Menu className="w-5 h-5" />
-              <span className="font-semibold">OUR SERVICES</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
-            </button>
-
-            {/* Services Mega Dropdown */}
-            {isServicesOpen && (
-              <div className="absolute top-full left-0 w-screen max-w-4xl bg-white shadow-2xl z-50 rounded-b-lg">
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-green-800 mb-6">Our Premium Services</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    {services.map((service, index) => (
-                      <div
-                        key={index}
-                        className="group cursor-pointer p-4 rounded-lg hover:bg-green-50 transition-colors"
-                      >
-                        <div className="flex items-center space-x-3 mb-2">
-                          <service.icon className="w-6 h-6 text-green-600 group-hover:text-green-700" />
-                          <h4 className="font-semibold text-gray-800 group-hover:text-green-800">{service.name}</h4>
-                        </div>
-                        <p className="text-sm text-gray-600">{service.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Main Navigation Links */}
-          <div className="flex items-center space-x-1 ml-4">
-            <a href="#" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
-              <Coffee className="w-4 h-4" />
-              <span>HOME</span>
-            </a>
-
-            {/* Foods Dropdown */}
+      <nav className="bg-white text-gray-600 font-bold">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="hidden lg:flex items-center">
+            {/* Our Services Dropdown */}
             <div className="relative">
               <button
-                onClick={() => setIsFoodsOpen(!isFoodsOpen)}
-                className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="px-6 py-1 flex items-center space-x-2 transition-colors cursor-pointer"
               >
-                <Utensils className="w-4 h-4" />
-                <span>FOODS</span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${isFoodsOpen ? "rotate-180" : ""}`} />
+                <div className="bg-green-800 hover:bg-green-900 rounded-md px-6 py-2 flex items-center space-x-2 transition-colors text-white">
+                  <Users className="w-5 h-5" />
+                  <span className="font-semibold">OUR SERVICES</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                </div>
               </button>
 
-              {/* Foods Mega Dropdown */}
-              {isFoodsOpen && (
-                <div className="absolute top-full left-0 w-screen max-w-6xl bg-white shadow-2xl z-50 rounded-b-lg">
+              {/* Services Mega Dropdown */}
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 w-screen max-w-4xl bg-white shadow-2xl z-50 rounded-b-lg">
                   <div className="p-8">
-                    <div className="flex justify-between items-center mb-8">
-                      <h3 className="text-3xl font-bold text-green-800">Our Culinary Experience</h3>
-                      <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                        View Full Menu
-                      </button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      {foodCategories.map((category, index) => (
-                        <div key={index} className="group cursor-pointer">
-                          <div className="relative overflow-hidden rounded-lg mb-4">
-                            <img
-                              src={category.image || "/placeholder.svg"}
-                              alt={category.name}
-                              className="w-full h-35 object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
+                    <h3 className="text-2xl font-bold text-green-800 mb-6">Our Premium Services</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                      {services.map((service, index) => (
+                        <a
+                          href={service.href || "#"}
+                          key={index}
+                          className="group cursor-pointer p-4 rounded-lg hover:bg-green-50 transition-colors"
+                        >
+                          <div className="flex items-center space-x-3 mb-2">
+                            <service.icon className="w-6 h-6 text-green-600 group-hover:text-green-700" />
+                            <h4 className="font-semibold text-gray-800 group-hover:text-green-800">{service.name}</h4>
                           </div>
-                          <div className="flex items-center space-x-3">
-                            <category.icon className="w-5 h-5 text-green-600" />
-                            <h4 className="font-semibold text-gray-800 group-hover:text-green-800 transition-colors">
-                              {category.name}
-                            </h4>
-                          </div>
-                        </div>
+                          <p className="text-sm text-gray-600">{service.description}</p>
+                        </a>
                       ))}
                     </div>
                   </div>
@@ -202,44 +183,230 @@ const Navbar = () => {
               )}
             </div>
 
-            <a href="#" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
-              <Wine className="w-4 h-4" />
-              <span>BAR</span>
-            </a>
+            {/* Main Navigation Links */}
+            <div className="flex items-center space-x-1 ml-4">
+              <a href="/" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
+                <Coffee className="w-4 h-4" />
+                <span>HOME</span>
+              </a>
 
-            <a href="#" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
-              <Cake className="w-4 h-4" />
-              <span>EVENTS</span>
-            </a>
+              {/* Foods Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsFoodsOpen(!isFoodsOpen)}
+                  className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 cursor-pointer transition-colors"
+                >
+                  <Utensils className="w-4 h-4" />
+                  <span>FOODS</span>
+                  <ChevronDown className={`w-3 h-3 transition-transform ${isFoodsOpen ? "rotate-180" : ""}`} />
+                </button>
 
-            <a href="#" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
-              <Phone className="w-4 h-4" />
-              <span>CONTACT</span>
-            </a>
+                {/* Foods Mega Dropdown */}
+                {isFoodsOpen && (
+                  <div className="absolute top-full -left-90 w-screen max-w-6xl bg-white shadow-2xl z-50 rounded-b-lg">
+                    <div className="p-8">
+                      <div className="flex justify-between items-center mb-8">
+                        <h3 className="text-3xl font-bold text-green-800">Our Culinary Experience</h3>
+                        <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                          View Full Menu
+                        </button>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {foodCategories.map((category, index) => (
+                          <div key={index} className="group cursor-pointer">
+                            <div className="relative overflow-hidden rounded-lg mb-4">
+                              <img
+                                src={category.image || "/placeholder.svg"}
+                                alt={category.name}
+                                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                              <category.icon className="w-5 h-5 text-green-600" />
+                              <h4 className="font-semibold text-gray-800 group-hover:text-green-800 transition-colors">
+                                {category.name}
+                              </h4>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <a href="/bar" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
+                <Wine className="w-4 h-4" />
+                <span>BAR</span>
+              </a>
+
+              <a href="/accomodation" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
+                <MdOutlineHotel className="w-4 h-4" />
+                <span>ACCOMODATION</span>
+              </a>
+
+              <a href="/contact" className="flex items-center space-x-2 px-4 py-4 hover:text-green-600 transition-colors">
+                <Phone className="w-4 h-4" />
+                <span>CONTACT</span>
+              </a>
+            </div>
           </div>
 
-          {/* Right Side Icons */}
-          <div className="ml-auto flex items-center space-x-4 px-4">
+          <div className="lg:hidden flex items-center justify-between w-full px-4">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 hover:bg-green-600 rounded-lg transition-colors"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
+                className="p-2 hover:bg-green-600 rounded-full transition-colors"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+              <button className="p-2 hover:bg-green-600 rounded-full transition-colors relative">
+                <SiWhatsapp className="w-5 h-5" />
+              </button>
+              <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
+                <User className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Right Side Icons */}
+          <div className="hidden lg:flex items-center space-x-4 px-4">
             <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
-              <Search className="w-5 h-5" />
+              <SiWhatsapp className="w-5 h-5" />
             </button>
             <button className="p-2 hover:bg-green-600 rounded-full transition-colors relative">
-              <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
+              <FaInstagram className="w-5 h-5" />
             </button>
             <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
-              <User className="w-5 h-5" />
+              <RiTiktokLine className="w-5 h-5" />
             </button>
           </div>
         </div>
+
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-green-800 border-t border-green-600">
+            <div className="px-4 py-2 space-y-1">
+              {/* Our Services Mobile */}
+              <div>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <Users className="w-5 h-5" />
+                    <span className="font-semibold">OUR SERVICES</span>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {isServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {services.map((service, index) => (
+                      <a
+                        key={index}
+                        href={service.href || "#"}
+                        className="flex items-center space-x-3 px-4 py-2 hover:bg-green-700 rounded-lg transition-colors"
+                      >
+                        <service.icon className="w-4 h-4" />
+                        <span className="text-sm">{service.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Other Mobile Links */}
+              <a
+                href="#"
+                className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+              >
+                <Coffee className="w-5 h-5" />
+                <span>HOME</span>
+              </a>
+
+              {/* Foods Mobile */}
+              <div>
+                <button
+                  onClick={() => setIsFoodsOpen(!isFoodsOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+                >
+                  <div className="flex items-center space-x-3">
+                    <Utensils className="w-5 h-5" />
+                    <span>FOODS</span>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isFoodsOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {isFoodsOpen && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {foodCategories.map((category, index) => (
+                      <a
+                        key={index}
+                        href="#"
+                        className="flex items-center space-x-3 px-4 py-2 hover:bg-green-700 rounded-lg transition-colors"
+                      >
+                        <category.icon className="w-4 h-4" />
+                        <span className="text-sm">{category.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <a
+                href="#"
+                className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+              >
+                <Wine className="w-5 h-5" />
+                <span>BAR</span>
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+              >
+                <Cake className="w-5 h-5" />
+                <span>EVENTS</span>
+              </a>
+
+              <a
+                href="#"
+                className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
+              >
+                <Phone className="w-5 h-5" />
+                <span>CONTACT</span>
+              </a>
+
+              {/* Mobile Contact Info */}
+              <div className="px-4 py-3 border-t border-green-600 mt-4">
+                <div className="text-sm space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="w-4 h-4" />
+                    <span>+254 795 106 483</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Mail className="w-4 h-4" />
+                    <span>info@omegagardens.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Overlay for dropdowns */}
-      {(isServicesOpen || isFoodsOpen) && (
+      {(isServicesOpen || isFoodsOpen) && !isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-40"
+          className="fixed inset-0 bg-black/10 bg-opacity-20 z-40"
           onClick={() => {
             setIsServicesOpen(false)
             setIsFoodsOpen(false)

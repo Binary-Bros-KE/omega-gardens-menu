@@ -1,20 +1,7 @@
 import React, { useState } from "react";
 import { ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const images = [
-    "/wedding/wedding-hero.jpg",
-    "/slider/slider-3.jpg",
-    "/home/wedding.png",
-    "/wedding/wedding-2.jpg",
-    "/omega/omega.jpeg",
-    "/omega/sitting.jpg",
-    "/wedding/wedding-4.jpg",
-    "/wedding/wedding-5.jpg",
-    "/wedding/wedding-6.jpg",
-    "/weekend-foods/5.jpg",
-];
-
-const GallaryComponent = () => {
+const GallaryComponent = ({ images = [] }) => {
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
 
@@ -48,6 +35,8 @@ const GallaryComponent = () => {
         // eslint-disable-next-line
     }, [open, current]);
 
+    if (!images.length) return null;
+
     return (
         <>
             <div className="grid grid-cols-5 w-full gap-0">
@@ -59,7 +48,7 @@ const GallaryComponent = () => {
                     >
                         <img
                             src={src}
-                            alt={`Wedding ${idx + 1}`}
+                            alt={`Gallery ${idx + 1}`}
                             className="w-full aspect-square object-cover block transition-transform duration-200 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-200">
@@ -93,7 +82,7 @@ const GallaryComponent = () => {
                     </button>
                     <img
                         src={images[current]}
-                        alt={`Wedding Large ${current + 1}`}
+                        alt={`Gallery Large ${current + 1}`}
                         className="max-h-[80vh] max-w-[90vw] rounded shadow-lg"
                         onClick={(e) => e.stopPropagation()}
                     />

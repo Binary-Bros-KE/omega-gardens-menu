@@ -14,7 +14,7 @@ const images = [
     "/weekend-foods/5.jpg",
 ];
 
-const GallaryComponent = () => {
+const WeddingGalary = () => {
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState(0);
 
@@ -110,4 +110,4 @@ const GallaryComponent = () => {
     );
 };
 
-export default GallaryComponent;
+export default WeddingGalary;

@@ -42,5 +42,7 @@
 }
 
 
-
+html {
+  scroll-behavior: smooth;
+}
 

@@ -9,12 +9,17 @@ import Accomodation from './pages/accomodation/Accomodation';
 import ChildrenPage from './pages/children/ChildrenPage';
 import OmegaGardensBarMenu from './pages/barMenu/BarMenu';
 import BarPage from './pages/barPage/BarPage';
+import WeddingPage from './pages/wedding/WeddingPage';
+import GymAndSpa from './pages/gymaAndSpa/GymAndSpa';
+import BackToTop from './components/BackToTop';
+import ContactPage from './pages/contact/ContactPage';
 
 
 function App() {
   return (
     <Router>
       <Toaster position="top-right" containerClassName='z-99999999' />
+      <BackToTop />
 
       <Navbar />
       <Routes>
@@ -22,8 +27,11 @@ function App() {
         <Route path='/accomodation' element={<Accomodation />} />
         <Route path='/children-activities' element={<ChildrenPage />} />
         <Route path='/bar' element={<BarPage />} />
+        <Route path='/wedding-grounds' element={<WeddingPage />} />
+        <Route path='/gym-and-spa' element={<GymAndSpa />} />
+        <Route path='/contact' element={<ContactPage />} />
 
-        <Route path='/restaurant-menu' element={<OmegaGardensMenu />} />
+        <Route path='/restaurant-menu/:categoryParam?' element={<OmegaGardensMenu />} />
         <Route path='/bar-menu' element={<OmegaGardensBarMenu />} />
       </Routes>
 

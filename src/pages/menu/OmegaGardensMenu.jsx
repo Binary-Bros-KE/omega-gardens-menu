@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react"
+import React from "react"
+import { useParams } from "react-router-dom";
+
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, ChevronDown, Utensils, Star, Clock, MapPin } from "lucide-react"
+import { Search, ChevronDown, Utensils, Menu, X } from "lucide-react"
 import { menuData, searchItems } from "../../constants/menus"
 
 export default function OmegaGardensMenu() {
@@ -9,7 +12,39 @@ export default function OmegaGardensMenu() {
   const [showSearchResults, setShowSearchResults] = useState(false)
   const [expandedCategories, setExpandedCategories] = useState({})
   const [selectedCategory, setSelectedCategory] = useState("all")
+  const [showCategoryMenu, setShowCategoryMenu] = useState(false)
 
+  console.log("setSelectedCategory", selectedCategory);
+
+  // Refs for scrolling to categories
+  const categoryRefs = useRef({})
+  const categories = Object.keys(menuData)
+
+  // Initialize refs
+  useEffect(() => {
+    categories.forEach((categoryKey) => {
+      if (!categoryRefs.current[categoryKey]) {
+        categoryRefs.current[categoryKey] = React.createRef()
+      }
+    })
+  }, [categories])
+
+
+  const { categoryParam } = useParams();
+  console.log("Category Param:", categoryParam)
+
+  // Handle URL params on component mount
+  useEffect(() => {
+    if (categoryParam && menuData[categoryParam]) {
+      setSelectedCategory(categoryParam)
+      // Auto-expand and scroll to category
+      setTimeout(() => {
+        expandAndScrollToCategory(categoryParam)
+      }, 500)
+    }
+  }, [])
+
+  // Search functionality
   useEffect(() => {
     if (searchQuery.trim()) {
       const results = searchItems(searchQuery)
@@ -20,6 +55,63 @@ export default function OmegaGardensMenu() {
       setSearchResults([])
     }
   }, [searchQuery])
+
+  const expandAndScrollToCategory = (categoryKey) => {
+    // Expand the category
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [categoryKey]: true,
+    }))
+
+    // Scroll to category after a brief delay to allow expansion animation
+    setTimeout(() => {
+      const categoryElement = categoryRefs.current[categoryKey]?.current
+      if (categoryElement) {
+        categoryElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        })
+      }
+    }, 300)
+  }
+
+  const handleCategorySelect = (categoryKey) => {
+    setSelectedCategory(categoryKey)
+    setShowCategoryMenu(false)
+
+    if (categoryKey !== "all") {
+      expandAndScrollToCategory(categoryKey)
+    }
+  }
+
+  const handleSearchResultClick = (item) => {
+    // Find the category key for this item
+    const categoryKey = Object.keys(menuData).find((key) => {
+      const category = menuData[key]
+
+      // Check direct items
+      if (category.items && category.items.some((catItem) => catItem.name === item.name)) {
+        return true
+      }
+
+      // Check subcategory items
+      if (category.subcategories) {
+        return Object.values(category.subcategories).some((subcategory) =>
+          subcategory.items.some((catItem) => catItem.name === item.name),
+        )
+      }
+
+      return false
+    })
+
+    if (categoryKey) {
+      setSelectedCategory(categoryKey)
+      setSearchQuery("")
+      setShowSearchResults(false)
+      expandAndScrollToCategory(categoryKey)
+    }
+  }
 
   const toggleCategory = (categoryKey) => {
     setExpandedCategories((prev) => ({
@@ -35,7 +127,6 @@ export default function OmegaGardensMenu() {
     return `${price}/=`
   }
 
-  const categories = Object.keys(menuData)
   const filteredCategories =
     selectedCategory === "all" ? categories : categories.filter((cat) => cat === selectedCategory)
 
@@ -45,31 +136,83 @@ export default function OmegaGardensMenu() {
       <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white shadow-2xl"
+        className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white shadow-2xl sticky top-0 z-40"
       >
         <div className="container mx-auto px-4 py-6">
-          <div className="text-center">
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center justify-center mb-4"
+          <div className="flex items-center justify-between">
+
+            {/* Logo and Title */}
+            <div className="flex-1">
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="flex items-center justify-center mb-2"
+              >
+                <Utensils className="w-6 h-6 mr-2 text-green-200" />
+                <h1 className="text-xl md:text-3xl font-bold bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
+                  View Categories Here
+                </h1>
+              </motion.div>
+            </div>
+
+            {/* Hamburger Menu Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowCategoryMenu(!showCategoryMenu)}
+              className="bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-all duration-300"
             >
-              <Utensils className="w-8 h-8 mr-3 text-green-200" />
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
-                Omega Gardens
-              </h1>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl font-light text-green-100 mb-2"
-            >
-              Hotel & Spa Restaurant
-            </motion.p>
+              {showCategoryMenu ? <X className="w-6 h-6 text-white" /> : <Menu className="w-4 h-4 text-white" />}
+            </motion.button>
+
+            {/* Spacer for balance */}
+            {/* <div className="w-12"></div> */}
           </div>
         </div>
+
+        {/* Category Menu Dropdown */}
+        <AnimatePresence>
+          {showCategoryMenu && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-green-900/95 backdrop-blur-sm border-t border-green-600"
+            >
+              <div className="container mx-auto px-4 py-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => handleCategorySelect("all")}
+                    className={`p-3 rounded-xl text-sm font-medium transition-all duration-300 ${selectedCategory === "all"
+                      ? "bg-green-600 text-white shadow-lg"
+                      : "bg-white/10 text-green-100 hover:bg-white/20"
+                      }`}
+                  >
+                    All Categories
+                  </motion.button>
+                  {categories.map((categoryKey) => (
+                    <motion.button
+                      key={categoryKey}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleCategorySelect(categoryKey)}
+                      className={`p-3 rounded-xl text-sm font-medium transition-all duration-300 ${selectedCategory === categoryKey
+                        ? "bg-green-600 text-white shadow-lg"
+                        : "bg-white/10 text-green-100 hover:bg-white/20"
+                        }`}
+                    >
+                      {menuData[categoryKey].title}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
 
       {/* Search Section */}
@@ -111,7 +254,8 @@ export default function OmegaGardensMenu() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
-                        className="border-b border-green-100 last:border-b-0 py-3"
+                        className="border-b border-green-100 last:border-b-0 py-3 cursor-pointer hover:bg-green-50 rounded-lg px-2 transition-colors duration-200"
+                        onClick={() => handleSearchResultClick(item)}
                       >
                         <div className="flex justify-between items-start">
                           <div className="flex-1">
@@ -133,38 +277,6 @@ export default function OmegaGardensMenu() {
             )}
           </AnimatePresence>
         </div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-2 mt-8"
-        >
-          <button
-            onClick={() => setSelectedCategory("all")}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              selectedCategory === "all"
-                ? "bg-green-600 text-white shadow-lg"
-                : "bg-white text-green-600 border border-green-200 hover:bg-green-50"
-            }`}
-          >
-            All Categories
-          </button>
-          {categories.map((categoryKey) => (
-            <button
-              key={categoryKey}
-              onClick={() => setSelectedCategory(categoryKey)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                selectedCategory === categoryKey
-                  ? "bg-green-600 text-white shadow-lg"
-                  : "bg-white text-green-600 border border-green-200 hover:bg-green-50"
-              }`}
-            >
-              {menuData[categoryKey].title}
-            </button>
-          ))}
-        </motion.div>
       </motion.section>
 
       {/* Menu Categories */}
@@ -177,6 +289,7 @@ export default function OmegaGardensMenu() {
             return (
               <motion.div
                 key={categoryKey}
+                ref={categoryRefs.current[categoryKey]}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: categoryIndex * 0.1 }}
@@ -226,7 +339,7 @@ export default function OmegaGardensMenu() {
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: itemIndex * 0.05 }}
-                                className="bg-white rounded-2xl p-4 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:border-green-200"
+                                className="bg-white rounded-2xl p-2 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:border-green-200"
                               >
                                 <div className="flex justify-between items-start">
                                   <div className="flex-1">
@@ -251,7 +364,7 @@ export default function OmegaGardensMenu() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: subIndex * 0.1 }}
-                                className="bg-gradient-to-r from-green-100 to-green-50 rounded-2xl p-4"
+                                className="bg-gradient-to-r from-green-100 to-green-50 rounded-2xl p-2"
                               >
                                 <h3 className="text-2xl font-bold text-green-800 mb-6 border-b-2 border-green-200 pb-2">
                                   {subcategory.title}
@@ -293,31 +406,6 @@ export default function OmegaGardensMenu() {
         </div>
       </main>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-8"
-      >
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Utensils className="w-6 h-6 mr-2 text-green-200" />
-            <h3 className="text-2xl font-bold">Omega Gardens Hotel & Spa</h3>
-          </div>
-          <p className="text-green-200 mb-4">Experience culinary excellence in a serene environment</p>
-          <div className="flex items-center justify-center space-x-6 text-sm text-green-300">
-            <span>Premium Dining</span>
-            <span>•</span>
-            <span>Fresh Ingredients</span>
-            <span>•</span>
-            <span>Exceptional Service</span>
-          </div>
-          <div className="mt-6 pt-4 border-t border-green-600 text-green-300 text-sm">
-            <p>Scan QR code at your table for easy ordering</p>
-          </div>
-        </div>
-      </motion.footer>
     </div>
   )
 }
