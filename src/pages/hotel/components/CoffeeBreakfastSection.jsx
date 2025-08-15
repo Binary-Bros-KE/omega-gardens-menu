@@ -132,7 +132,7 @@ const CoffeeBreakfastSection = () => {
   }
 
   return (
-    <section className="pb-20 bg-gradient-to-br from-green-50 to-emerald-50 pt-50">
+    <section className="pb-20 bg-gradient-to-br from-green-50 to-emerald-50 pt-50 max-md:pt-100">
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Content Area */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-center mb-16">

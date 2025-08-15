@@ -14,7 +14,6 @@ export default function OmegaGardensMenu() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [showCategoryMenu, setShowCategoryMenu] = useState(false)
 
-  console.log("setSelectedCategory", selectedCategory);
 
   // Refs for scrolling to categories
   const categoryRefs = useRef({})
@@ -31,7 +30,6 @@ export default function OmegaGardensMenu() {
 
 
   const { categoryParam } = useParams();
-  console.log("Category Param:", categoryParam)
 
   // Handle URL params on component mount
   useEffect(() => {

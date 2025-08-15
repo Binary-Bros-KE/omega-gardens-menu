@@ -408,32 +408,6 @@ export default function OmegaGardensBarMenu() {
           })}
         </div>
       </main>
-
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="bg-gradient-to-r from-amber-900 via-orange-800 to-red-900 text-white py-8"
-      >
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Wine className="w-6 h-6 mr-2 text-amber-200" />
-            <h3 className="text-2xl font-bold">Omega Gardens Bar</h3>
-            <GlassWater className="w-6 h-6 ml-2 text-amber-200" />
-          </div>
-          <div className="flex items-center justify-center space-x-6 text-sm text-amber-300">
-            <span>Premium Brands</span>
-            <span>•</span>
-            <span>Expert Mixology</span>
-            <span>•</span>
-            <span>Late Night Service</span>
-          </div>
-          <div className="mt-6 pt-4 border-t border-amber-600 text-amber-300 text-sm">
-            <p>Scan QR code at your table for easy ordering • Please drink responsibly</p>
-          </div>
-        </div>
-      </motion.footer>
     </div>
   )
 }

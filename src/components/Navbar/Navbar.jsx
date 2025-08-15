@@ -26,6 +26,7 @@ import {
   Heart,
   Menu,
   X,
+  CookingPot,
 } from "lucide-react"
 import { href } from "react-router-dom"
 import { MdOutlineHotel } from "react-icons/md"
@@ -53,12 +54,12 @@ const Navbar = () => {
   ]
 
   const foodCategories = [
-    { name: "Breakfast Menu", icon: Coffee, image: "/placeholder.svg?height=200&width=300&text=Breakfast" },
-    { name: "Fine Dining", icon: Utensils, image: "/placeholder.svg?height=200&width=300&text=Fine+Dining" },
-    { name: "Bar Menu", icon: Wine, image: "/placeholder.svg?height=200&width=300&text=Bar+Menu" },
-    { name: "Banquet Menu", icon: Cake, image: "/placeholder.svg?height=200&width=300&text=Banquet" },
-    { name: "Healthy Options", icon: Salad, image: "/placeholder.svg?height=200&width=300&text=Healthy+Food" },
-    { name: "Reception Coffee", icon: Coffee, image: "/placeholder.svg?height=200&width=300&text=Coffee" },
+    { name: "Breakfast Menu", icon: Coffee, image: "/menu/tea.jpeg", href: "/restaurant-menu/tea" },
+    { name: "Starters", icon: Utensils, image: "/menu/starters.jpg", href: "/restaurant-menu/starters" },
+    { name: "Snacks & Pastries", icon: Cake, image: "/menu/snacks.png", href: "/restaurant-menu/snacks" },
+    { name: "Lunch Menu", icon: CookingPot, image: "/menu/fish.jpg", href: "/restaurant-menu/starters" },
+    { name: "Healthy Options", icon: Salad, image: "/menu/vegetables.jpg", href: "/restaurant-menu/vegetarian" },
+    { name: "Bar Menu", icon: Wine, image: "/bar-menu/rum.png", href: "/bar-menu" },
   ]
 
   return (
@@ -207,20 +208,20 @@ const Navbar = () => {
                     <div className="p-8">
                       <div className="flex justify-between items-center mb-8">
                         <h3 className="text-3xl font-bold text-green-800">Our Culinary Experience</h3>
-                        <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                        <a href="/restaurant-menu" className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
                           View Full Menu
-                        </button>
+                        </a>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {foodCategories.map((category, index) => (
-                          <div key={index} className="group cursor-pointer">
+                          <a key={index} href={category.href} className="group cursor-pointer">
                             <div className="relative overflow-hidden rounded-lg mb-4">
                               <img
                                 src={category.image || "/placeholder.svg"}
                                 alt={category.name}
                                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                               />
-                              <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                              <div className="absolute inset-0 bg-black/20 group-hover:bg-opacity-10 transition-all duration-300"></div>
                             </div>
                             <div className="flex items-center space-x-3">
                               <category.icon className="w-5 h-5 text-green-600" />
@@ -228,7 +229,7 @@ const Navbar = () => {
                                 {category.name}
                               </h4>
                             </div>
-                          </div>
+                          </a>
                         ))}
                       </div>
                     </div>
@@ -279,20 +280,20 @@ const Navbar = () => {
 
           {/* Desktop Right Side Icons */}
           <div className="hidden lg:flex items-center space-x-4 px-4">
-            <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
+            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
               <SiWhatsapp className="w-5 h-5" />
             </button>
-            <button className="p-2 hover:bg-green-600 rounded-full transition-colors relative">
+            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors relative">
               <FaInstagram className="w-5 h-5" />
             </button>
-            <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
+            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
               <RiTiktokLine className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-green-800 border-t border-green-600">
+          <div className="lg:hidden bg-green-800 text-white border-t border-green-600">
             <div className="px-4 py-2 space-y-1">
               {/* Our Services Mobile */}
               <div>
@@ -325,7 +326,7 @@ const Navbar = () => {
 
               {/* Other Mobile Links */}
               <a
-                href="#"
+                href="/"
                 className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
               >
                 <Coffee className="w-5 h-5" />
@@ -350,7 +351,7 @@ const Navbar = () => {
                     {foodCategories.map((category, index) => (
                       <a
                         key={index}
-                        href="#"
+                        href={category.href}
                         className="flex items-center space-x-3 px-4 py-2 hover:bg-green-700 rounded-lg transition-colors"
                       >
                         <category.icon className="w-4 h-4" />
@@ -362,7 +363,7 @@ const Navbar = () => {
               </div>
 
               <a
-                href="#"
+                href="/bar"
                 className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
               >
                 <Wine className="w-5 h-5" />
@@ -370,15 +371,15 @@ const Navbar = () => {
               </a>
 
               <a
-                href="#"
+                href="/accomodation"
                 className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
               >
-                <Cake className="w-5 h-5" />
-                <span>EVENTS</span>
+                <MdOutlineHotel className="w-4 h-4" />
+                <span>ACCOMODATION</span>
               </a>
 
               <a
-                href="#"
+                href="/contact"
                 className="flex items-center space-x-3 px-4 py-3 hover:bg-green-700 rounded-lg transition-colors"
               >
                 <Phone className="w-5 h-5" />

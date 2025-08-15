@@ -125,16 +125,16 @@ const HeroSlider = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-70 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group"
+        className="absolute left-6 max-md:left-2 top-70 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group"
       >
-        <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
+        <ChevronLeft className="w-6 h-6 max-md:w-4 max-md:h-4 text-gray-600 group-hover:scale-110 transition-transform" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-70 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group"
+        className="absolute right-6 max-md:right-2 top-70 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 group"
       >
-        <ChevronRight className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
+        <ChevronRight className="w-6 h-6 max-md:w-4 max-md:h-4 text-gray-600 group-hover:scale-110 transition-transform" />
       </button>
 
     </section>
