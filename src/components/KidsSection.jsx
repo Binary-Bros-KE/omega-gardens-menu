@@ -88,33 +88,33 @@ const KidsSection = () => {
                 {/* Top Section: Kids Activities & Food Highlights */}
                 <div className="text-center mb-16">
                     <p className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-3 font-fredoka flex items-center justify-center gap-2">
-                        <img src="/graphics/curve-line.png" className="h-8 transform scale-x-[-1]" />
+                        <img src="/graphics/curve-line.png" className="h-8 max-md:h-4 transform scale-x-[-1]" />
                         FOR OUR YOUNGEST GUESTS
-                        <img src="/graphics/curve-line.png" className="h-8" />
+                        <img src="/graphics/curve-line.png" className="h-8 max-md:h-4" />
                     </p>
                     <h2 className="text-4xl lg:text-5xl font-bold text-gray-600 mb-12 font-cursive">
                         <span className="text-yellow-400">Bring Your Kids </span> to Omega Gardens
                     </h2>
 
-                    <div className="flex items-center justify-center gap-10">
-                        <div className="flex gap-6 lg:gap-8">
+                    <div className="flex items-center justify-center gap-10 max-md:flex-col">
+                        <div className="flex gap-6 lg:gap-8  max-md:w-auto max-md:flex-col">
                             {/* Left Image */}
                             <img
                                 src="/home/swimming.jpg"
                                 alt="Kids Playing at Omega Gardens"
-                                className="w-60 h-80 object-cover rounded-full"
+                                className="w-60 h-80 max-md:w-auto max-md:h-auto object-cover rounded-full"
                             />
 
                             {/* Middle Content & Image */}
                             <img
                                 src="/kids/castle.jpg"
                                 alt="Kids Menu on Phone"
-                                className="w-40 h-80 object-cover rounded-full"
+                                className="w-40 h-80 max-md:w-auto max-md:h-auto object-cover rounded-full"
                             />
                             <img
                                 src="/kids/ice-cream.jpg"
                                 alt="Kids Menu on Phone"
-                                className="w-40 h-80 object-cover rounded-full"
+                                className="w-40 h-80 max-md:w-auto max-md:h-auto object-cover rounded-full"
                             />
                         </div>
                         {/* Right Features */}
@@ -147,7 +147,7 @@ const KidsSection = () => {
                                 </div>
                             </div>
 
-                            <a href="" className="bg-green-600  py-2 px-8 rounded-lg text-white font-fredoka hover:bg-green-700 transition-colors text-xl">
+                            <a href="/restaurant-menu/kids" className="bg-green-600  py-2 px-8 rounded-lg text-white font-fredoka hover:bg-green-700 transition-colors text-xl">
                             
                                 View Kids Menu
                             </a>
@@ -161,7 +161,7 @@ const KidsSection = () => {
                     <div className="relative">
                         <Slider ref={carouselRef} {...carouselSettings}>
                             {kidsCategories.map((category, index) => (
-                                <div key={index} className="px-3">
+                                <a href="/restaurant-menu/kids" key={index} className="px-3">
                                     <div className="group cursor-pointer">
                                         <div className="bg-white rounded-2xl transition-all duration-300 overflow-hidden">
                                             {/* Image */}
@@ -186,24 +186,9 @@ const KidsSection = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             ))}
                         </Slider>
-
-                        {/* Custom Navigation Arrows */}
-                        {/* <button
-                            onClick={() => carouselRef.current?.slickPrev()}
-                            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-20 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-colors hidden md:block"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-
-                        <button
-                            onClick={() => carouselRef.current?.slickNext()}
-                            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-20 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-colors hidden md:block"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button> */}
                     </div>
                 </div>
             </div>

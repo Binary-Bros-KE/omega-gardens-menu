@@ -61,19 +61,13 @@ export default function WeddingServices() {
                     ))}
                   </div>
 
-                  <button className="bg-white text-pink-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition-colors duration-300">
+                  <a href="/contact" className="bg-white text-pink-500 px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-50 transition-colors duration-300">
                     Learn More
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="bg-white text-pink-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-pink-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-            View All Wedding Packages
-          </button>
         </div>
       </div>
     </section>

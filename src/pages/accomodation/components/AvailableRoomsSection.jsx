@@ -153,7 +153,9 @@ const AvailableRoomsSection = () => {
                 </div>
 
                 <button className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors shadow-md mt-4">
-                  View Details
+                  <a href="/contact">
+                    Book Room
+                  </a>
                 </button>
               </div>
             </div>

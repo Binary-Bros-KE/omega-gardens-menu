@@ -8,7 +8,7 @@ import WineFeatureSection from "./components/WineFeatureSection";
 import RooftopBarSection from "./components/RooftopBarSection";
 import BackyardGourmetSection from "./components/BackyardGourmetSection";
 import IndoorBarSection from "./components/IndoorBarSection";
-import WeekendFoods from "../hotel/components/WeekendFoods";
+import GallaryComponent from "../../components/GallaryComponent";
 
   const categories = Object.entries(barMenu).map(([key, cat]) => ({
     key,
@@ -16,6 +16,14 @@ import WeekendFoods from "../hotel/components/WeekendFoods";
     image: cat.categoryImage,
     count: Array.isArray(cat.items) ? cat.items.length : 0,
   }))
+
+  const barImages = [
+    "/bar-menu/indoor-bar/omega-bar-indoor-2.jpg",
+    "/bar-menu/counter-2.jpg",
+    "/bar-menu/indoor-bar/omega-bar-indoor-1.jpg",
+    "/bar-menu/vodka.jpg",
+    "/bar-menu/indoor-bar/bar-banner.jpg",
+];
 
 
 export default function BarPage() {
@@ -43,7 +51,7 @@ export default function BarPage() {
                 <BackyardGourmetSection />
             </div>
             <div>
-                 <WeekendFoods />
+                 <GallaryComponent images={barImages}/>
             </div>
             <div>
                 <IndoorBarSection />

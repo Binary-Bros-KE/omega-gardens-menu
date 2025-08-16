@@ -39,7 +39,7 @@ const GallaryComponent = ({ images = [] }) => {
 
     return (
         <>
-            <div className="grid grid-cols-5 w-full gap-0">
+            <div className="grid grid-cols-5 max-md:flex max-md:flex-col w-full gap-0">
                 {images.map((src, idx) => (
                     <div
                         key={idx}
@@ -64,7 +64,7 @@ const GallaryComponent = ({ images = [] }) => {
                     onClick={closeOverlay}
                 >
                     <button
-                        className="absolute top-6 right-8 text-white z-50"
+                        className="absolute top-6 right-8 text-white z-50 cursor-pointer"
                         onClick={(e) => {
                             e.stopPropagation();
                             closeOverlay();
@@ -74,7 +74,7 @@ const GallaryComponent = ({ images = [] }) => {
                         <X size={36} />
                     </button>
                     <button
-                        className="absolute left-4 md:left-16 top-1/2 -translate-y-1/2 text-white z-50"
+                        className="cursor-pointer absolute left-4 md:left-16 top-1/2 -translate-y-1/2 text-white z-50"
                         onClick={prevImage}
                         aria-label="Previous"
                     >
@@ -87,7 +87,7 @@ const GallaryComponent = ({ images = [] }) => {
                         onClick={(e) => e.stopPropagation()}
                     />
                     <button
-                        className="absolute right-4 md:right-16 top-1/2 -translate-y-1/2 text-white z-50"
+                        className="cursor-pointer absolute right-4 md:right-16 top-1/2 -translate-y-1/2 text-white z-50"
                         onClick={nextImage}
                         aria-label="Next"
                     >

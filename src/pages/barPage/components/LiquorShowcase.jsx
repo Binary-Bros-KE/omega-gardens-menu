@@ -10,34 +10,38 @@ export default function LiquorShowcase() {
     {
       titleTop: "SPECIAL VARIETY",
       title: "WINE TASTING",
-      priceLabel: "From",
+      priceLabel: "From Only",
       price: "KSh 2,500",
       cta: "View Selection",
       image: "/bar-menu/wine-bottle-and-glass.jpg",
+      href: "/bar-menu",
     },
     {
       titleTop: "SIGNATURE MIXOLOGY",
       title: "COCKTAIL CLASS",
-      priceLabel: "Per guest",
+      priceLabel: "From Only",
       price: "KSh 3,200",
       cta: "Our Bar Menu",
       image: "/bar-menu/cocktail-glasses.jpg",
+      href: "/bar-menu",
     },
     {
       titleTop: "AGED SELECTION",
       title: "WHISKEY FLIGHT",
-      priceLabel: "From",
+      priceLabel: "From Only",
       price: "KSh 3,800",
       cta: "Explore Flights",
       image: "/bar-menu/whisky-glass.webp",
+      href: "/bar-menu",
     },
     {
       titleTop: "HOPPY HOURS",
       title: "CRAFT BEERS",
-      priceLabel: "Pint",
+      priceLabel: "From Only",
       price: "KSh 600",
       cta: "See On Tap",
       image: "/bar-menu/beer-cup.jpg",
+      href: "/bar-menu",
     },
   ]
 
@@ -106,9 +110,9 @@ export default function LiquorShowcase() {
                   Evening
                 </h3>
               </div>
-              <button className="self-start bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-md font-semibold transition">
+              <a href="/bar-menu" className="self-start bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-md font-semibold transition">
                 Explore Cellar
-              </button>
+              </a>
             </div>
           </div>
 
@@ -132,12 +136,12 @@ export default function LiquorShowcase() {
                     </h2>
                     <div className="mt-4 text-lg md:text-2xl font-semibold">
                       {s.priceLabel}:{" "}
-                      <span className="inline-block bg-white text-gray-900 px-2 py-1 rounded">{s.price}</span>
+                      <span className="inline-block text-rose-600 font-extrabold px-2 py-1 rounded">{s.price}</span>
                     </div>
                     <div className="mt-6">
-                      <button className="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-md font-semibold transition">
+                      <a href={s.href} className="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-md font-semibold transition">
                         {s.cta}
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -162,10 +166,10 @@ export default function LiquorShowcase() {
                   Party!
                 </h3>
               </div>
-              <button className="self-start bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-md font-semibold transition inline-flex items-center gap-2">
+              <a href="/bar-menu" className="self-start bg-rose-600 hover:bg-rose-700 text-white px-5 py-3 rounded-md font-semibold transition inline-flex items-center gap-2">
                 View Whisky Menu
                 <PartyPopper className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

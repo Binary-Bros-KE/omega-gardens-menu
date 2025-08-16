@@ -56,7 +56,7 @@ export default function BarSelectionGrid({ barMenu, title = "Trending today" }) 
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">{title}</h2>
             <p className="text-sm md:text-base text-gray-600 mt-1">The best selection from Omega Gardens Bar</p>
           </div>
-          <a href="#" className="text-rose-600 font-semibold hover:underline">
+          <a href="/bar-menu" className="text-rose-600 font-semibold hover:underline">
             View All
           </a>
         </div>
@@ -105,7 +105,7 @@ export default function BarSelectionGrid({ barMenu, title = "Trending today" }) 
         {/* Section CTA */}
         <div className="text-center mt-10">
           <a
-            href="#"
+            href="/bar-menu"
             className="inline-block bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-md font-semibold transition"
           >
             View Bar Menu

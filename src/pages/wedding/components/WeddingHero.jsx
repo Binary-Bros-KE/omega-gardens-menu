@@ -45,12 +45,12 @@ export default function WeddingHero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <a href="/contact" className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Get Started
-              </button>
-              <button className="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300">
-                View Packages
-              </button>
+              </a>
+              <a href="/contact" className="border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300">
+                Inquire
+              </a>
             </div>
           </div>
 

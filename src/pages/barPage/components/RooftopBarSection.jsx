@@ -11,7 +11,8 @@ export default function RooftopBarSection() {
   ]
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#0f1420] via-[#0d0f18] to-[#090b12] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-[url('/bar-menu/counter-3.jpg')] py-16 md:py-24">
+
       {/* stars */}
       <div
         className="pointer-events-none absolute inset-0 opacity-30"
@@ -20,6 +21,7 @@ export default function RooftopBarSection() {
             "radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.6) 0, transparent 50%), radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,.5) 0, transparent 50%), radial-gradient(1px 1px at 50% 70%, rgba(255,255,255,.4) 0, transparent 50%)",
         }}
       />
+
       <div className="pointer-events-none absolute -top-24 left-1/4 h-40 w-40 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 right-1/4 h-40 w-40 rounded-full bg-sky-500/20 blur-3xl" />
 
@@ -58,13 +60,13 @@ export default function RooftopBarSection() {
         {/* ctas */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
           <a
-            href="#"
+            href="/contact"
             className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-sky-600 hover:bg-sky-700 text-white transition"
           >
             Book Sunset Seating
           </a>
           <a
-            href="#"
+            href="/bar-menu"
             className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold border border-white/80 text-white hover:bg-white hover:text-gray-900 transition"
           >
             Rooftop Menu

@@ -142,7 +142,7 @@ const AccommodationsPage = () => {
                                     className="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold text-lg transition-colors flex items-center justify-center space-x-2 shadow-md"
                                 >
                                     <Search className="w-5 h-5" />
-                                    <span>Search Rooms</span>
+                                    <span>Book A Room</span>
                                 </button>
                             </form>
                         </div>

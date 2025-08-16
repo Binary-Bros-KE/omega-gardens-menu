@@ -1,7 +1,7 @@
 "use client"
 
 import { Scissors, Clock, Star, User, Sparkles, Phone } from "lucide-react"
-import WeekendFoods from "../../hotel/components/WeekendFoods"
+import GallaryComponent from "../../../components/GallaryComponent"
 
 export default function BarbershopSection() {
   const services = [
@@ -30,6 +30,17 @@ export default function BarbershopSection() {
       description: "Special occasion styling and grooming",
     },
   ]
+
+
+
+  const babershopImages = [
+    "/gym/barber/barber-4.png",
+    "/gym/barbar.jpg",
+    "/gym/barber/barber-1.webp",
+    "/gym/barber/barber-3.webp",
+    "/gym/barber/barber-2.webp",
+  ];
+
 
   const features = [
     {
@@ -92,10 +103,10 @@ export default function BarbershopSection() {
               ))}
             </div>
 
-            <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center space-x-2">
+            <a href="/contact" className="w-fit bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center space-x-2">
               <Phone className="w-5 h-5" />
               <span>Book Appointment</span>
-            </button>
+            </a>
           </div>
 
           {/* Right - Image */}
@@ -121,18 +132,9 @@ export default function BarbershopSection() {
         </div>
 
         <div className="mt-16">
-          <WeekendFoods />
+          <GallaryComponent images={babershopImages} />
         </div>
       </div>
     </section>
   )
 }
-
-
-const images = [
-    "/weekend-foods/1.jpg",
-    "/weekend-foods/4.jpg",
-    "/weekend-foods/2.jpg",
-    "/weekend-foods/3.jpg",
-    "/weekend-foods/5.jpg",
-];

@@ -7,9 +7,9 @@ import "slick-carousel/slick/slick-theme.css"
 
 export default function BackyardGourmetSection() {
   const images = [
-    "/placeholder.svg?height=360&width=640",
-    "/placeholder.svg?height=360&width=640",
-    "/placeholder.svg?height=360&width=640",
+    "/bar-menu/backyard/backyard.jpg",
+    "/bar-menu/backyard/backyard-2.jpg",
+    "/bar-menu/backyard/backyard-3.jpg",
   ]
 
   const settings = {
@@ -68,13 +68,13 @@ export default function BackyardGourmetSection() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#"
+              href="/bar-menu"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-emerald-600 hover:bg-emerald-700 text-white transition"
             >
               View BBQ & Drinks
             </a>
             <a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold border border-emerald-700 text-emerald-800 hover:bg-emerald-700 hover:text-white transition"
             >
               Book Outdoor Table
@@ -85,11 +85,11 @@ export default function BackyardGourmetSection() {
         {/* Right slider */}
         <div className="relative">
           <div className="absolute -inset-4 rounded-3xl bg-emerald-200/30 blur-xl" />
-          <div className="relative rounded-3xl overflow-hidden border border-emerald-200 shadow-xl">
+          <div className="relative rounded-3xl overflow-hidden border border-emerald-200 shadow-xl h-full">
             <Slider {...settings}>
               {images.map((src, i) => (
                 <div key={i}>
-                  <img src={src || "/placeholder.svg"} alt="Backyard Gourmet" className="w-full h-80 object-cover" />
+                  <img src={src || "/placeholder.svg"} alt="Backyard Gourmet" className="w-full h-full object-cover" />
                 </div>
               ))}
             </Slider>
@@ -100,7 +100,7 @@ export default function BackyardGourmetSection() {
       {/* curved bottom */}
       <div className="mt-14 mx-auto max-w-7xl px-4">
         <div className="rounded-3xl bg-white p-5 md:p-6 shadow-sm border border-emerald-100">
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-700">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700 ">
             <Utensils className="w-4 h-4 text-emerald-700" />
             Grill platters • Garden salads • Seasonal fruits • Craft mocktails & cocktails
           </div>

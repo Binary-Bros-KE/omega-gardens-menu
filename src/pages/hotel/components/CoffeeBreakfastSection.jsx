@@ -18,6 +18,7 @@ const CoffeeBreakfastSection = () => {
       items: "12+ Items",
       price: "From $8.99",
       color: "from-orange-400 to-red-500",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Sandwiches",
@@ -26,6 +27,7 @@ const CoffeeBreakfastSection = () => {
       items: "15+ Items",
       price: "From $6.99",
       color: "from-yellow-400 to-orange-500",
+      href: "/restaurant-menu/sandwich",
     },
     {
       name: "Snacks & Pastries",
@@ -34,6 +36,7 @@ const CoffeeBreakfastSection = () => {
       items: "18+ Items",
       price: "From $3.99",
       color: "from-pink-400 to-rose-500",
+      href: "/restaurant-menu/snacks",
     },
     {
       name: "Desserts",
@@ -42,6 +45,7 @@ const CoffeeBreakfastSection = () => {
       items: "25+ Items",
       price: "From $5.99",
       color: "from-purple-400 to-pink-500",
+      href: "/restaurant-menu/desserts",
     },
   ]
 
@@ -52,48 +56,49 @@ const CoffeeBreakfastSection = () => {
       description: "Freshly brewed perfection",
       image: "/breakfast/hot-coffee.png",
       popular: "Espresso, Cappuccino, Latte",
-      price: "From $3.99",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Cold Coffee",
       description: "Refreshing iced delights",
       image: "/breakfast/cold-coffee.png",
       popular: "Iced Latte, Cold Brew, Frappé",
-      price: "From $4.99",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Hot Beverages",
       description: "Warming comfort drinks",
       image: "/breakfast/hot-beverage.png",
       popular: "Green Tea, Chai, Hot Chocolate",
-      price: "From $2.99",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Cold Tea",
       description: "Cool & refreshing",
       image: "/breakfast/cold-tea.png",
       popular: "Iced Tea, Lemonade, Sodas",
-      price: "From $2.99",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Herbal Tea",
       description: "Relaxing herbal infusions",
       image: "/breakfast/herbal-tea.png",
       popular: "Hibiscus, Camomile, Mint, Ginger",
+      href: "/restaurant-menu/tea",
     },
     {
       name: "Smoothies",
       description: "Healthy fruit blends",
       image: "/breakfast/smoothie.png",
       popular: "Banana, Mango, Avocado, Pineapple",
-      price: "From $6.99",
+      href: "/restaurant-menu/cocktails",
     },
     {
       name: "Cold Beverages",
       description: "Refreshing chilled drinks",
       image: "/breakfast/cold-beverages.png",
       popular: "Soda, Keringet, Delmonte, Redbull, Monster",
-      price: "From $6.99",
+      href: "/restaurant-menu/smoothies",
     },
   ]
 
@@ -166,10 +171,10 @@ const CoffeeBreakfastSection = () => {
               </div>
             </div>
 
-            <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2">
+            <a href="/restaurant-menu/tea" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center space-x-2 w-fit">
               <span>View Breakfast Menu</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
 
           {/* Center - Coffee Cup Image */}
@@ -200,7 +205,7 @@ const CoffeeBreakfastSection = () => {
                 key={index}
                 className="group bg-white rounded-xl  px-4 py-1 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-green-200"
               >
-                <div className="flex items-center space-x-4">
+                <a href={bundle.href} className="flex items-center space-x-4">
                   <div
                     className={`relative w-16 h-16 bg-gradient-to-br ${bundle.color} rounded-lg flex items-center justify-center`}
                   >
@@ -221,7 +226,7 @@ const CoffeeBreakfastSection = () => {
                     </div>
                   </div>
                   <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-green-600 transition-colors" />
-                </div>
+                </a>
               </div>
             ))}
           </div>
@@ -234,7 +239,7 @@ const CoffeeBreakfastSection = () => {
           <div className="relative">
             <Slider ref={carouselRef} {...carouselSettings}>
               {drinks.map((drink, index) => (
-                <div key={index} className="px-3">
+                <a key={index} href={drink.href} className="px-3">
                   <div className="bg-white rounded-full p-6 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border border-gray-100 hover:border-green-200">
                     {/* Image */}
                     <img
@@ -258,7 +263,7 @@ const CoffeeBreakfastSection = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </Slider>
 

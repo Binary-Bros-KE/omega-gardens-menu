@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, Star, Award, Users, Utensils, Sparkles, Clock, Play, Pause } from "lucide-react"
+import { href } from "react-router-dom"
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -17,6 +18,7 @@ const HeroSlider = () => {
       image: "/slider/slider-1.jpg",
       features: ["Organic Ingredients", "Master Chef Prepared", "Award-Winning Cuisine"],
       buttonText: "View Our Menu",
+      href: "/restaurant-menu/tea",
       bgColor: "from-green-900 to-green-700",
     },
     {
@@ -28,6 +30,7 @@ const HeroSlider = () => {
       image: "/slider/slider-2.jpg",
       features: ["Premium Ambiance", "Spotless Environment", "Comfortable Seating"],
       buttonText: "Book a Table",
+      href: "/contact",
       bgColor: "from-green-800 to-emerald-600",
     },
     {
@@ -38,7 +41,8 @@ const HeroSlider = () => {
         "Our internationally trained chefs bring decades of experience and passion to every dish. Watch them create culinary masterpieces in our open kitchen concept restaurant.",
       image: "/slider/slider-3.jpg",
       features: ["International Experience", "Creative Innovation", "Personalized Service"],
-      buttonText: "Meet the Team",
+      buttonText: "Contact Us",
+      href: "/contact",
       bgColor: "from-emerald-800 to-green-600",
     },
   ]
@@ -108,12 +112,12 @@ const HeroSlider = () => {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-2 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <a href={slide.href} className="bg-green-500 hover:bg-green-600 text-white px-8 py-2 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
                       {slide.buttonText}
-                    </button>
-                    <button className="border-2 border-white text-white hover:bg-white hover:text-green-800 px-8 py-2 rounded-lg font-semibold text-lg transition-all duration-300">
+                    </a>
+                    <a href="/contact" className="border-2 border-white text-white hover:bg-white hover:text-green-800 px-8 py-2 rounded-lg font-semibold text-lg transition-all duration-300">
                       Learn More
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

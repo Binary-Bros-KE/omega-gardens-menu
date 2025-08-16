@@ -1,7 +1,7 @@
 "use client"
 
 import { Users, Target, Trophy, Lightbulb, MapPin, Calendar } from "lucide-react"
-import WeekendFoods from "../../hotel/components/WeekendFoods"
+import GallaryComponent from "../../../components/GallaryComponent"
 
 export default function TeamBuildingSection() {
     const activities = [
@@ -24,6 +24,15 @@ export default function TeamBuildingSection() {
             activities: ["Art Sessions", "Cooking Classes", "Music Activities", "Craft Projects"],
         },
     ]
+
+
+    const teamBuldingImages = [
+        "/gym/teambulding.jpg",
+        "/gym/teambulding-2.jpg",
+        "/gym/teambulding-3.jpg",
+        "/gym/teambulding-4.jpg",
+        "/gym/teambulding.jpg",
+    ];
 
     return (
         <section className="pt-10 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 font-fredoka">
@@ -113,10 +122,10 @@ export default function TeamBuildingSection() {
                         goals.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center justify-center space-x-2">
+                        <a href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center justify-center space-x-2">
                             <Calendar className="w-5 h-5" />
                             <span>Schedule Program</span>
-                        </button>
+                        </a>
                         <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold transition-colors flex items-center justify-center space-x-2">
                             <MapPin className="w-5 h-5" />
                             <span>View Facilities</span>
@@ -125,7 +134,7 @@ export default function TeamBuildingSection() {
                 </div>
             </div>
             <div className="mt-16">
-                <WeekendFoods />
+                <GallaryComponent images={teamBuldingImages} />
             </div>
         </section>
     )

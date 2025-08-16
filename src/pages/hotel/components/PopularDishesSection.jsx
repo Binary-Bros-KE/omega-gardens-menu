@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Star, ShoppingCart, Heart, Clock, Award } from "lucide-react"
+import { Star, ShoppingCart, Heart, Clock, Award, Utensils } from "lucide-react"
 
 const PopularDishesSection = () => {
   const [favorites, setFavorites] = useState(new Set())
@@ -20,6 +20,7 @@ const PopularDishesSection = () => {
       isPopular: false,
       description: "Salads, Soups, Bittings, Crispy Fish Fingers",
       prepTime: "5 mins",
+      href: "/restaurant-menu/starters",
     },
     {
       id: 2,
@@ -34,6 +35,7 @@ const PopularDishesSection = () => {
       isPopular: true,
       description: "Spaghetti, Macaroni, Chinese Noodles",
       prepTime: "15 mins",
+      href: "/restaurant-menu/pasta",
     },
     {
       id: 3,
@@ -48,6 +50,7 @@ const PopularDishesSection = () => {
       isPopular: true,
       description: "Beef Stew, Fried Beef on Bone, Beef Choma",
       prepTime: "20 mins",
+      href: "/restaurant-menu/beef",
     },
     {
       id: 4,
@@ -62,6 +65,7 @@ const PopularDishesSection = () => {
       isPopular: false,
       description: "Chicken Capon, Crispy Coated Drumsticks",
       prepTime: "25 mins",
+      href: "/restaurant-menu/chicken",
     },
     {
       id: 5,
@@ -76,6 +80,7 @@ const PopularDishesSection = () => {
       isPopular: true,
       description: "Whole Tilapia, Coconut Whole Fish",
       prepTime: "30 mins",
+      href: "/restaurant-menu/fish",
     },
     {
       id: 6,
@@ -90,6 +95,7 @@ const PopularDishesSection = () => {
       isPopular: true,
       description: "Grilled Pork Spare Ribs, Fried Pork",
       prepTime: "35 mins",
+      href: "/restaurant-menu/pork",
     },
     {
       id: 7,
@@ -104,6 +110,7 @@ const PopularDishesSection = () => {
       isPopular: false,
       description: "Spiced mutton chops with mint sauce",
       prepTime: "40 mins",
+      href: "/restaurant-menu/mutton",
     },
     {
       id: 8,
@@ -118,6 +125,7 @@ const PopularDishesSection = () => {
       isPopular: false,
       description: "Mixed Vegetable Stew, Fried Moong Dal",
       prepTime: "20 mins",
+      href: "/restaurant-menu/vegetarian",
     },
     {
       id: 9,
@@ -132,6 +140,7 @@ const PopularDishesSection = () => {
       isPopular: true,
       description: "Chicken Biryani, Chicken Curry, Vegetable Curry",
       prepTime: "45 mins",
+      href: "/restaurant-menu/indian",
     },
     {
       id: 10,
@@ -146,6 +155,7 @@ const PopularDishesSection = () => {
       isPopular: false,
       description: "Ugali Managu, Githeri Minji, Plain Matoke, Beef Matoke",
       prepTime: "15 mins",
+      href: "/restaurant-menu/african",
     },
   ]
 
@@ -181,9 +191,10 @@ const PopularDishesSection = () => {
         {/* Dishes Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-6">
           {popularDishes.map((dish) => (
-            <div
+            <a
               key={dish.id}
-              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-green-200 transform hover:-translate-y-2"
+              href={dish.href}
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-green-200 transform hover:-translate-y-2 cursor-pointer"
             >
               {/* Image Container */}
               <div className="relative overflow-hidden">
@@ -256,19 +267,19 @@ const PopularDishesSection = () => {
                     View Dishes
                   </button>
                   <button className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg">
-                    <ShoppingCart className="w-4 h-4" />
+                     <Utensils className="w-4 h-4" />
                   </button>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <a href="/restaurant-menu" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
             View Complete Menu
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-import { GiBarbecue } from "react-icons/gi";
-
 const BoardroomIntro = () => {
 
 
@@ -13,10 +11,10 @@ const BoardroomIntro = () => {
                         Equipped with modern amenities, they are perfect for meetings, presentations, and events.
                     </p>
                     <div className="flex items-center justify-center gap-4 max-md:flex-col">
-                        <div className="flex items-center justify-center gap-2 mt-10 border uppercase border-green-600 py-1 px-8 rounded-full text-lg  text-green-600 transition-all duration-300 cursor-pointer">
+                        <div className="flex items-center justify-center gap-2 mt-10 bg-white uppercase py-1 px-8 rounded-full text-lg  text-gray-600 transition-all duration-300 cursor-pointer">
                             <p>Boadrooms</p>
                         </div>
-                        <div className="flex items-center justify-center gap-2 mt-10 border uppercase border-green-600 py-1 px-8 rounded-full text-lg text-green-600 transition-all duration-300 cursor-pointer">
+                        <div className="flex items-center justify-center gap-2 mt-10 bg-white uppercase  py-1 px-8 rounded-full text-lg text-gray-600 transition-all duration-300 cursor-pointer">
                             <p>Conference Hall</p>
                         </div>
                     </div>

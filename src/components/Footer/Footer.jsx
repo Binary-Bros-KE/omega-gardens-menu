@@ -1,6 +1,7 @@
 "use client"
 
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Star, TreePine } from "lucide-react"
+import { FaTiktok } from "react-icons/fa"
 
 const Footer = () => {
   return (
@@ -33,27 +34,27 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-gray-800 mb-6">Quick Links</h3>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>About Us</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Our Services</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/accomodation" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Accommodations</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/contact" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Reservations</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/contact" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Contact Us</span>
                 </a>
               </li>
@@ -65,27 +66,27 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-gray-800 mb-6">Our Menus</h3>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/restaurant-menu/tea" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Breakfast & Coffee</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/restaurant-menu/burgers" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Burgers & Pizzas</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/restaurant-menu" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Popular Dishes</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/restaurant-menu/beef" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>BBQ & Steaks</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+                <a href="/restaurant-menu/cocktails" className="hover:text-green-600 transition-colors flex items-center space-x-2">
                   <span className="text-green-500">&gt;</span> <span>Cocktails & Drinks</span>
                 </a>
               </li>
@@ -114,17 +115,17 @@ const Footer = () => {
         <div className="mt-10 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
           <p>&copy; 2025 Omega Gardens. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+            <a href="https://www.facebook.com/theomegaleisuregardens" className="hover:text-green-600 transition-colors flex items-center space-x-2">
               <Facebook className="w-5 h-5" />
               <span>Facebook</span>
             </a>
-            <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+            <a href="https://www.instagram.com/omegagardens_/?hl=en" className="hover:text-green-600 transition-colors flex items-center space-x-2">
               <Instagram className="w-5 h-5" />
               <span>Instagram</span>
             </a>
-            <a href="#" className="hover:text-green-600 transition-colors flex items-center space-x-2">
-              <Twitter className="w-5 h-5" />
-              <span>Twitter</span>
+            <a href="https://www.tiktok.com/tag/omegagardenhotelkaratina" className="hover:text-green-600 transition-colors flex items-center space-x-2">
+              <FaTiktok className="w-5 h-5" />
+              <span>Tik Tok</span>
             </a>
           </div>
         </div>

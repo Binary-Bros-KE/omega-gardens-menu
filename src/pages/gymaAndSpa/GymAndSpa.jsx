@@ -16,6 +16,7 @@ export default function GymAndSpa() {
       }
     }, [location]);
 
+
   return (
     <div className="min-h-screen bg-gray-50">
 

@@ -204,10 +204,10 @@ const ConferenceServicesSection = () => {
                                     </div>
                                 )}
 
-                                <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors flex items-center space-x-2 shadow-md">
+                                <a href="/contact" className="w-fit bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors flex items-center space-x-2 shadow-md">
                                     <span>Learn More</span>
                                     <ArrowRight className="w-5 h-5" />
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -220,10 +220,10 @@ const ConferenceServicesSection = () => {
                         Contact our dedicated events team today to plan your perfect conference, meeting, or special occasion at
                         Omega Gardens.
                     </p>
-                    <button className="bg-white hover:bg-gray-100 text-green-800 px-10 py-5 rounded-lg font-bold text-xl transition-colors shadow-lg flex items-center justify-center mx-auto space-x-3">
+                    <a href="/contact" className="w-fit bg-white hover:bg-gray-100 text-green-800 px-10 py-5 rounded-lg font-bold text-xl transition-colors shadow-lg flex items-center justify-center mx-auto space-x-3">
                         <CalendarDays className="w-6 h-6" />
                         <span>Request a Quote</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>

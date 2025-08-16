@@ -1,7 +1,7 @@
 "use client"
 
 import { Dumbbell, Heart, Waves, Clock, Users, Star } from "lucide-react"
-import WeekendFoods from "../../hotel/components/WeekendFoods"
+import GallaryComponent from "../../../components/GallaryComponent"
 
 export default function GymSpaSection() {
     const facilities = [
@@ -24,6 +24,14 @@ export default function GymSpaSection() {
             features: ["Yoga Studio", "Meditation Room", "Sauna & Steam", "Wellness Consultations"],
         },
     ]
+
+    const gymImages = [
+        "/home/gym.jpeg",
+        "/gym/gym-1.webp",
+        "/gym/gym/1.webp",
+        "/gym/gym/3.webp",
+        "/gym/gym/4.jpg",
+    ];
 
     return (
         <section className="pt-10 bg-white font-fredoka">
@@ -110,10 +118,10 @@ export default function GymSpaSection() {
                             ))}
                         </div>
 
-                        <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center space-x-2">
+                        <a href="/contact" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors flex items-center space-x-2 w-fit ">
                             <Clock className="w-5 h-5" />
                             <span>Book Your Session</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -137,7 +145,7 @@ export default function GymSpaSection() {
                 </div>
             </div>
             <div className="mt-16">
-                <WeekendFoods />
+                <GallaryComponent images={gymImages}/>
             </div>
         </section>
     )

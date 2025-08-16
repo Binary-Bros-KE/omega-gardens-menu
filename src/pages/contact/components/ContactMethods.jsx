@@ -18,11 +18,11 @@ export default function ContactMethods() {
             icon: <Mail className="w-8 h-8" />,
             title: "Email",
             description: "Detailed inquiries and bookings",
-            contact: "marketing@omega leisuregardens.com",
+            contact: "info@omegaleisuregardens.com",
             action: "Send Email",
             bgColor: "bg-blue-500",
             hoverColor: "hover:bg-blue-600",
-            href: "mailto:marketing@omegaleisuregardens.com",
+            href: "mailto:info@omegaleisuregardens.com",
         },
         {
             icon: <Phone className="w-8 h-8" />,

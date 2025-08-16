@@ -87,9 +87,9 @@ export default function WeddingServicesDetails() {
               Our wedding specialists are here to help you create the perfect celebration. Let's discuss your vision and
               make it a reality.
             </p>
-            <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
+            <a href="/contact" className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-semibold transition-colors">
               Schedule Consultation
-            </button>
+            </a>
           </div>
         </div>
       </div>

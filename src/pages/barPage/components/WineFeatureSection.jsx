@@ -64,13 +64,13 @@ export default function WineFeatureSection({ imageSrc = "/bar-menu/wines-bg.png"
             {/* CTAs */}
             <div className={`mt-8 flex flex-col sm:flex-row gap-3 ${isLeft ? "" : "sm:justify-end"}`}>
               <a
-                href="#"
+                href="/bar-menu"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold bg-rose-600 hover:bg-rose-700 text-white transition"
               >
                 Explore Wine List
               </a>
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold border border-white/80 text-white hover:bg-white hover:text-gray-900 transition"
               >
                 Book Wine Tasting

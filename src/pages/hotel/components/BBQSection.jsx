@@ -54,7 +54,7 @@ const BBQSection = () => {
           {topFeatures.map((feature, index) => (
             <div
               key={index}
-              className={`${index == 1 ? "transform translate-y-10" : ""} h-100 w-80 bg-red-600 relative bg-black bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer border-2 border-transparent transition-all duration-300`}
+              className={`${index == 1 ? "transform translate-y-10 max-md:translate-y-0" : ""} h-100 w-80 bg-red-600 relative bg-black bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer border-2 border-transparent transition-all duration-300`}
             >
               <img
                 src={feature.image || "/placeholder.svg"}
@@ -74,9 +74,9 @@ const BBQSection = () => {
 
 
         {/* BBQ Menu Section */}
-        <div className="relative min-h-150 rounded-2xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
+        <div className="relative min-h-150 rounded-2xl p-8 max-md:p-2 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
           {/* Left: BBQ Image with Animation */}
-          <div className="absolute flex justify-center z-10">
+          <div className="absolute max-md:static flex justify-center z-10">
             <div className="relative w-full max-w-md">
               <img
                 src="/weekend-foods/BBG.png"
@@ -100,7 +100,7 @@ const BBQSection = () => {
           </div>
 
           {/* Right: BBQ Menu List */}
-          <div className="absolute w-[70%] space-y-6 bg-green-100/80 right-5 pl-40 pr-25 rounded-full py-6 font-fredoka">
+          <div className="absolute max-md:static w-[70%] max-md:w-[100%] space-y-6 bg-green-100/80 right-5 pl-40 max-md:pl-4 pr-25 max-md:pr-4 rounded-full max-md:rounded-md py-6 font-fredoka ">
             <h3 className="text-3xl font-bold text-gray-800">Omega BBQ Delights</h3>
             {beefBBQItems.map((item, index) => (
               <div
@@ -115,9 +115,9 @@ const BBQSection = () => {
               </div>
             ))}
             <div>
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-2 rounded-lg font-semibold text-lg transition-colors shadow-lg">
+              <a href="/restaurant-menu/beef" className="bg-green-600 hover:bg-green-700 text-white px-8 py-2 rounded-lg font-semibold text-lg transition-colors shadow-lg">
                 View Full BBQ Menu
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ const BBQSection = () => {
             </div>
 
             <div className="absolute bottom-5 left-5 mt-4 inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold text-sm">
-              From KSh 1200
+              From Only KSh 700
             </div>
           </div>
 
@@ -153,7 +153,7 @@ const BBQSection = () => {
               <p className="text-gray-300">Sip on our expertly crafted signature drinks.</p>
             </div>
                      <div className="absolute bottom-5 left-5 mt-4 inline-block bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold text-sm">
-              From KSh 1200
+              From Only KSh 200
             </div>
           </div>
         </div>

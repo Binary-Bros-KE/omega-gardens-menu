@@ -33,6 +33,7 @@ import { MdOutlineHotel } from "react-icons/md"
 import { SiWhatsapp } from "react-icons/si"
 import { FaInstagram } from "react-icons/fa"
 import { RiTiktokLine } from "react-icons/ri"
+import { TbBrandFacebook } from "react-icons/tb"
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
@@ -119,7 +120,7 @@ const Navbar = () => {
               <p className="text-xs text-gray-600">For any Inquiries/Booking</p>
               <p className="text-sm sm:text-lg font-bold text-green-800 flex items-center">
                 <Phone className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                +254 700 549496
+               +254 795 106483
               </p>
             </div>
             <a href="/contact" className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base">
@@ -263,32 +264,35 @@ const Navbar = () => {
             </button>
 
             <div className="flex items-center space-x-2">
-              <button
+              <a
                 onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
                 className="p-2 hover:bg-green-600 rounded-full transition-colors"
               >
                 <Search className="w-5 h-5" />
-              </button>
-              <button className="p-2 hover:bg-green-600 rounded-full transition-colors relative">
+              </a>
+              <a href="whatsapp://send?phone=+254700549496" className="p-2 hover:bg-green-600 rounded-full transition-colors relative">
                 <SiWhatsapp className="w-5 h-5" />
-              </button>
-              <button className="p-2 hover:bg-green-600 rounded-full transition-colors">
+              </a>
+              <a className="p-2 hover:bg-green-600 rounded-full transition-colors">
                 <User className="w-5 h-5" />
-              </button>
+              </a>
             </div>
           </div>
 
           {/* Desktop Right Side Icons */}
           <div className="hidden lg:flex items-center space-x-4 px-4">
-            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
+            <a href="whatsapp://send?phone=+254700549496" className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
               <SiWhatsapp className="w-5 h-5" />
-            </button>
-            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors relative">
+            </a>
+            <a href="https://www.facebook.com/theomegaleisuregardens" className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors relative">
+              <TbBrandFacebook className="w-5 h-5" />
+            </a>
+            <a href="https://www.instagram.com/omegagardens_/?hl=en" className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors relative">
               <FaInstagram className="w-5 h-5" />
-            </button>
-            <button className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
+            </a>
+            <a href="https://www.tiktok.com/tag/omegagardenhotelkaratina" className="p-2 hover:bg-green-600 hover:text-white cursor-pointer rounded-full transition-colors">
               <RiTiktokLine className="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -391,11 +395,11 @@ const Navbar = () => {
                 <div className="text-sm space-y-2">
                   <div className="flex items-center space-x-2">
                     <Phone className="w-4 h-4" />
-                    <span>+254 795 106 483</span>
+                    <span>+254 795 106483</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Mail className="w-4 h-4" />
-                    <span>info@omegagardens.com</span>
+                    <span>info@omegaleisuregardens.com</span>
                   </div>
                 </div>
               </div>

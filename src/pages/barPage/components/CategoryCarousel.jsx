@@ -30,7 +30,7 @@ export default function CategoryCarousel({ categories = [] }) {
         <div className="mt-8">
           <Slider {...settings}>
             {categories.map((cat, idx) => (
-              <div key={idx} className="px-3">
+              <div key={idx} className="px-3 cursor-pointer">
                 <div className="group bg-white rounded-2xl text-center transition-all">
                   <div className="mx-auto relative size-40 md:size-44">
                     {/* circular backdrop */}

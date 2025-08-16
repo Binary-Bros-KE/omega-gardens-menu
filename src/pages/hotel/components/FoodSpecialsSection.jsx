@@ -23,10 +23,11 @@ const FoodSpecialsSection = () => {
             discount: "15%",
             rating: 4.9,
             reviews: 324,
-            priceRange: "From KSh 600",
+            priceRange: "Starting At Only KSh 600",
             features: ["100% Fresh Beef", "Artisan Buns", "Premium Toppings"],
             popular: "Traditional Beef Burger",
             bgColor: "from-red-600 to-orange-500",
+              href: "/restaurant-menu/burgers",
         },
         {
             id: 2,
@@ -40,28 +41,31 @@ const FoodSpecialsSection = () => {
             discount: "20%",
             rating: 4.8,
             reviews: 287,
-            priceRange: "From KSh 800",
+            priceRange: "Starting At Only Ksh 600",
             features: ["Wood-Fired Oven", "Fresh Mozzarella", "Italian Herbs"],
             popular: "Margherita Supreme",
             bgColor: "from-green-600 to-emerald-500",
+              href: "/restaurant-menu/pizza",
         },
         {
             id: 3,
-            category: "Fries",
-            title: "Gourmet Fries Collection",
-            subtitle: "Crispy Perfection in Every Bite",
+            category: "Chicken",
+            title: "Golden Crispy Chicken",
+            subtitle: "Juicy, Crunchy & Irresistible",
             description:
-                "Golden, crispy fries seasoned to perfection and served with our signature dipping sauces. The perfect complement to any meal.",
+                "Tender chicken pieces seasoned with our special blend of spices, coated to perfection, and fried until golden crispy. A perfect balance of crunch and flavor in every bite.",
             image: "/burgers/fries.png",
-            badge: "CRISPY GOLD",
+            badge: "CUSTOMER FAVORITE",
             discount: "10%",
             rating: 4.7,
             reviews: 412,
-            priceRange: "From KSh 300",
-            features: ["Hand-Cut Fresh", "Secret Seasoning", "Multiple Sauces"],
-            popular: "Loaded Cheese Fries",
+            priceRange: "Starting At Only KSh 500",
+            features: ["Special Spice Blend", "Crispy Coating", "Juicy Inside"],
+            popular: "Crispy Coated Drumsticks",
             bgColor: "from-yellow-500 to-orange-400",
+            href: "/restaurant-menu/chicken",
         },
+
     ]
 
     const carouselSettings = {
@@ -78,7 +82,7 @@ const FoodSpecialsSection = () => {
     }
 
     return (
-        <section className="relative py-10 overflow-hidden max-h-150 max-md:max-h-auto">
+        <section className="relative py-10 overflow-hidden">
             {/* Dark Textured Background */}
             <div className="absolute inset-0">
                 <img
@@ -95,14 +99,14 @@ const FoodSpecialsSection = () => {
                 <Slider ref={carouselRef} {...carouselSettings}>
                     {foodSpecials.map((special, index) => (
                         <div key={special.id}>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[500px]">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-md:gap-5 max-md:text-center items-center min-h-[500px]">
                                 {/* Left Side - Content */}
                                 <div className="text-white space-y-6 order-2 lg:order-1">
 
                                     {/* Main Title */}
                                     <div>
                                         <h3 className="text-xl text-green-400 font-bold mb-2">{special.subtitle}</h3>
-                                        <h2 className="text-5xl lg:text-6xl text-white font-bold mb-2">
+                                        <h2 className="text-5xl lg:text-6xl text-white font-bold mb-2 max-md:text-3xl">
                                             {special.title}
                                         </h2>
                                     </div>
@@ -119,12 +123,13 @@ const FoodSpecialsSection = () => {
                                     </div>
 
                                     {/* CTA Button */}
-                                    <div className="relative border-2 border-[rgb(243,39,76)] w-50 h-16 rounded-lg">
-                                        <button
+                                    <div className="relative border-2 border-[rgb(243,39,76)] w-50 h-16 rounded-lg max-md:mx-auto">
+                                        <a
+                                        href={special.href}
                                             className={`bg-gradient-to-r bg-[rgb(243,39,76)] absolute top-1 -right-5 cursor-pointer hover:opacity-90 text-white px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl`}
                                         >
                                             View Our Menu
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -156,24 +161,8 @@ const FoodSpecialsSection = () => {
                         </div>
                     ))}
                 </Slider>
-
-                {/* Navigation Arrows */}
-                {/* <button
-                    onClick={() => carouselRef.current?.slickPrev()}
-                    className="absolute left-6 -bottom-15 transform -translate-y-1/2 z-20 bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur-sm p-4 rounded-full transition-all duration-300 group"
-                >
-                    <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
-                </button>
-
-                <button
-                    onClick={() => carouselRef.current?.slickNext()}
-                    className="absolute right-6 -bottom-15 transform -translate-y-1/2 z-20 bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur-sm p-4 rounded-full transition-all duration-300 group"
-                >
-                    <ChevronRight className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
-                </button> */}
-
                 {/* Slide Indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 max-md:-bottom-4">
                     <div className="flex space-x-3">
                         {foodSpecials.map((_, index) => (
                             <button

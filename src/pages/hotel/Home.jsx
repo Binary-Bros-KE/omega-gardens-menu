@@ -5,8 +5,16 @@ import HeroSlider from "./components/HeroSlider";
 import KidsSection from "../../components/KidsSection";
 import PopularDishesSection from "./components/PopularDishesSection";
 import ServicesShowcase from "./components/ServicesShowcase";
-import WeekendFoods from "./components/WeekendFoods";
 import WeekendIntro from "./components/WeekendIntro";
+import GallaryComponent from "../../components/GallaryComponent";
+
+const images = [
+    "/weekend-foods/1.jpg",
+    "/weekend-foods/2.jpg",
+    "/weekend-foods/3.jpg",
+    "/weekend-foods/4.jpg",
+    "/weekend-foods/5.jpg",
+];
 
 export default function Home() {
   return (
@@ -38,7 +46,7 @@ export default function Home() {
       <div>
         <BBQSection />
       </div>
-      <WeekendFoods />
+      <GallaryComponent images={images}/>
     </div>
   )
 }
